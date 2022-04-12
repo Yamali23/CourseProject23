@@ -12,8 +12,13 @@
 <p><strong>Логин:</strong> <input type="text" name="login" id="login" value=""> 
 <p><strong>Пароль:</strong> <input type="text" name="password" id="password" value=""> 
 
+<form action="${pageContext.request.contextPath}/JavaStart" method="post">
 <p><input type="submit" name="sign" value="Войти">
-<input type="submit" name="sign" value="Зарегистрироваться">
+</form>
+
+<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
+<p><input type="submit" name="sign" value="Зарегистрироваться">
+</form>
 
 
 </body>
