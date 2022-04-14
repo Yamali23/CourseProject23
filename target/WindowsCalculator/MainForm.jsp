@@ -9,34 +9,35 @@
 <body>
 <p> ${infa}</p> 
 <h2>Задайте параметры для расчета : </h2> 
+<form action="${pageContext.request.contextPath}/JavaCalc" method="post">
 <p><strong>Высота:</strong> <input type="text" name="height" id="height" value=""> 
-<p><strong>Ширина:</strong> <input type="text" name="widht" id="widht" value=""> 
+<p><strong>Ширина:</strong> <input type="text" name="width" id="width" value=""> 
 
 <p><strong><label for="number-select">Количество створок:</label></strong>
-<select name="number" id="number-select">
+<select name="NumStvor" id="number-select">
     <option value="NS">--Выберите количество створок--</option>
-    <option value="oneNS">Одна</option>
-    <option value="twoNS">Две</option>
-    <option value="threeNS">Три</option>
+    <option value="1">Одна</option>
+    <option value="2">Две</option>
+    <option value="3">Три</option>
     </select>
     
     <p><strong><label for="number-select">Количество откидных створок:</label></strong>
-<select name="number" id="number-select">
+<select name="NumFuncStvor" id="number-select">
     <option value="NFS">--Выберите количество откидных створок--</option>
-    <option value="oneNFS">Одна</option>
-    <option value="twoNFS">Две</option>
-    <option value="threeNFS">Три</option>
+    <option value="1">Одна</option>
+    <option value="2">Две</option>
+    <option value="3">Три</option>
     </select>
     
     <p><strong><label for="number-select">Тип стеклопакета:</label></strong>
-<select name="number" id="number-select">
+<select name="TypeWind" id="number-select">
     <option value="TW">--Выберите тип стеклопакета--</option>
-    <option value="oneTW">Одномерный</option>
-    <option value="twoTW">Двукамерный</option>
+    <option value="1">Одномерный</option>
+    <option value="2">Двукамерный</option>
     </select>
     
     <p><strong><label for="number-select">Генерация PDF:</label></strong>
-<select name="number" id="number-select">
+<select name="PDF" id="number-select">
     <option value="yes">Генерировать</option>
     <option value="no">Не генерировать</option>
     </select>
@@ -44,7 +45,7 @@
     <p><input type="submit" name="sign" value="Рассчитать">
     
 </select>
-
+</form>
 
 
 </body>
