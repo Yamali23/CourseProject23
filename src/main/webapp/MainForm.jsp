@@ -7,7 +7,7 @@
 <title> Ввод параметров </title>
 </head>
 <body>
-
+<p> ${infa}</p> 
 <h2>Задайте параметры для расчета : </h2> 
 <p><strong>Высота:</strong> <input type="text" name="height" id="height" value=""> 
 <p><strong>Ширина:</strong> <input type="text" name="widht" id="widht" value=""> 

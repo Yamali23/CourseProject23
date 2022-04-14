@@ -9,15 +9,18 @@
 <body>
 
      <h2>Авторизация </h2> 
-<p><strong>Логин:</strong> <input type="text" name="login" id="login" value=""> 
-<p><strong>Пароль:</strong> <input type="text" name="password" id="password" value=""> 
+     
 
-<form action="${pageContext.request.contextPath}/JavaStart" method="post">
-<p><input type="submit" name="sign" value="Войти">
+
+<form action="${pageContext.request.contextPath}/JavaEntrance" method="post">
+<p><strong>Логин:</strong> <input type="text" name="login" id="login" value="">
+<p><strong>Пароль:</strong> <input type="text" name="password" id="password" value="">
+<p><input type="submit" name="ent" value="Войти">
 </form>
 
-<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
-<p><input type="submit" name="sign" value="Зарегистрироваться">
+
+<form action="${pageContext.request.contextPath}/Registration.jsp" method="post">
+<p><input type="submit" name="reg" value="Зарегистрироваться">
 </form>
 
 
