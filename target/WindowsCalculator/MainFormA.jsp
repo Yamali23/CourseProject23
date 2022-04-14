@@ -9,43 +9,55 @@
 <body>
 <p> ${infa}</p> 
 <h2>Задайте параметры для расчета : </h2> 
+<form action="${pageContext.request.contextPath}/JavaCalc" method="post">
 <p><strong>Высота:</strong> <input type="text" name="height" id="height" value=""> 
-<p><strong>Ширина:</strong> <input type="text" name="widht" id="widht" value=""> 
+<p><strong>Ширина:</strong> <input type="text" name="width" id="width" value=""> 
 
 <p><strong><label for="number-select">Количество створок:</label></strong>
-<select name="number" id="number-select">
-    <option value="ANS">--Выберите количество створок--</option>
-    <option value="oneANS">Одна</option>
-    <option value="twoANS">Две</option>
-    <option value="threeANS">Три</option>
+<select name="NumStvor" id="number-select">
+    <option value="NS">--Выберите количество створок--</option>
+    <option value="1">Одна</option>
+    <option value="2">Две</option>
+    <option value="3">Три</option>
     </select>
     
     <p><strong><label for="number-select">Количество откидных створок:</label></strong>
-<select name="number" id="number-select">
-    <option value="ANFS">--Выберите количество откидных створок--</option>
-    <option value="oneANFS">Одна</option>
-    <option value="twoANFS">Две</option>
-    <option value="threeANFS">Три</option>
+<select name="NumFuncStvor" id="number-select">
+    <option value="NFS">--Выберите количество откидных створок--</option>
+    <option value="1">Одна</option>
+    <option value="2">Две</option>
+    <option value="3">Три</option>
     </select>
     
     <p><strong><label for="number-select">Тип стеклопакета:</label></strong>
-<select name="number" id="number-select">
-    <option value="ATW">--Выберите тип стеклопакета--</option>
-    <option value="oneATW">Одномерный</option>
-    <option value="twoATW">Двукамерный</option>
+<select name="TypeWind" id="number-select">
+    <option value="TW">--Выберите тип стеклопакета--</option>
+    <option value="1">Одномерный</option>
+    <option value="2">Двукамерный</option>
     </select>
     
     <p><strong><label for="number-select">Генерация PDF:</label></strong>
-<select name="number" id="number-select">
+<select name="PDF" id="number-select">
     <option value="yes">Генерировать</option>
     <option value="no">Не генерировать</option>
     </select>
     
     <p><input type="submit" name="sign" value="Рассчитать">
-    <p><input type="submit" name="sign" value="Коэффициенты">
-    <input type="submit" name="sign" value="Роли">
     
 </select>
+</form>
+
+<form action="${pageContext.request.contextPath}/Materials.jsp" method="post">    
+    <p><input type="submit" name="coef" value="Коэффициенты">
+</form>
+
+<form action="${pageContext.request.contextPath}/Roles.jsp" method="post">    
+    <input type="submit" name="roles" value="Роли">
+</form>    
+
+<form action="${pageContext.request.contextPath}/3dModel.jsp" method="post">
+<p><input type="submit" name="3d" value="Трёхмерная модель окна">
+</form>
 
 </body>
 </html>

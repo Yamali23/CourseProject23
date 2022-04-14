@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> Ввод параметров </title>
+<title>Ввод параметров </title>
 </head>
 <body>
 <p> ${infa}</p> 
@@ -47,6 +47,9 @@
 </select>
 </form>
 
+<form action="${pageContext.request.contextPath}/3dModel.jsp" method="post">
+<p><input type="submit" name="3d" value="Трёхмерная модель окна">
+</form>
 
 </body>
 </html>
