@@ -11,9 +11,9 @@
 <h2>Изменение роли пользователя </h2> 
 
 <form action="${pageContext.request.contextPath}/JavaChangeRoles"" method="post">    
-<p><input type="text" name="first" id="first" value="Введите логин пользователя..."> 
+<p><input type="text" name="userName" id="first" value="Введите логин пользователя..."> 
 
-<p><select name="number" id="number-select">
+<p><select name="Role" id="number-select">
     <option value="">--Выберите роль--</option>
     <option value="oneRole">Пользователь</option>
     <option value="twoRole">Администратор</option>
