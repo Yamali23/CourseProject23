@@ -34,8 +34,8 @@ public class Registration extends HttpServlet {
 		
 		adduser.writeToFile();		
 		
-		adduser.setAsRequestAttributesAndCalculate(request);
-		request.getRequestDispatcher("/Info.jsp").forward(request, response);
+		//adduser.setAsRequestAttributesAndCalculate(request);
+		request.getRequestDispatcher("/InputForm.jsp").forward(request, response);
 	}
 
 	private static class Adduser
@@ -53,10 +53,10 @@ public class Registration extends HttpServlet {
 			
 		}
 		
-        public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
+        /*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
-			request.setAttribute("infa", s);
-		}
+			request.setAttribute("", s);
+		}*/
 		
 		public static Adduser fromRequestParameters(HttpServletRequest request) 
 		{
@@ -82,12 +82,6 @@ public class Registration extends HttpServlet {
 				abspath=abspath+parsfilepath[i]+"/";
 			}
 			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
-			//s = filepath;
-			//String imagepath=abspath+"webapps/WindowsCalculator/picture/ugatu.png";
-			//String fontpath =abspath+"/webapps/WindowsCalculator/users";
-	    	
-			
-			//t = Files.exists(file.toPath());
 			
 	
 		    ClassLoader classLoader = getClass().getClassLoader();
@@ -112,14 +106,7 @@ public class Registration extends HttpServlet {
 	        }
 	
 	        pw.close();
-	        
-	        
-	        
-	        /*File file = new File("users3").getAbsoluteFile();
-	        PrintWriter output = new PrintWriter(new File("users3").getAbsoluteFile());
-	        output.println(user);
-	        output.close();*/
-	        
+	    
 		}
 
 	}

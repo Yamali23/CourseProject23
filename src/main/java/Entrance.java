@@ -30,7 +30,7 @@ public class Entrance extends HttpServlet {
 		input.readFromFile();
 		input.checkLoginAndPassword();
 		
-		input.setAsRequestAttributesAndCalculate(request);
+		//input.setAsRequestAttributesAndCalculate(request);
 		
 		if (type == 1)
 		{
@@ -67,10 +67,10 @@ public class Entrance extends HttpServlet {
 			request.getParameter("password"));
 			}
 		
-		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
+		/*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
 			request.setAttribute("infa", s);
-		}
+		}*/
 		
 		public void readFromFile() throws IOException
 		{
