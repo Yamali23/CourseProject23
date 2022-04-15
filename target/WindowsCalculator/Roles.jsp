@@ -19,8 +19,13 @@
     <option value="twoRole">Администратор</option>
     </select>
     
-    <p><input type="submit" name="sign" value="Сохранить">
+    <form action="${pageContext.request.contextPath}/JavaChangeRoles"" method="post">    
+    <p><input type="submit" name="role" value="Сохранить">
+    </form>
+    
+   <form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
     <input type="submit" name="sign" value="Назад">
+ </form>  
 
 </body>
 </html>
