@@ -10,8 +10,8 @@
 
 <h2>Изменение роли пользователя </h2> 
 
+<form action="${pageContext.request.contextPath}/JavaChangeRoles"" method="post">    
 <p><input type="text" name="first" id="first" value="Введите логин пользователя..."> 
-<input type="submit" name="sign" value="Найти">
 
 <p><select name="number" id="number-select">
     <option value="">--Выберите роль--</option>
@@ -19,7 +19,6 @@
     <option value="twoRole">Администратор</option>
     </select>
     
-    <form action="${pageContext.request.contextPath}/JavaChangeRoles"" method="post">    
     <p><input type="submit" name="role" value="Сохранить">
     </form>
     
