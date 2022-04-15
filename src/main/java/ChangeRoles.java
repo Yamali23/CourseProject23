@@ -54,8 +54,14 @@ public class ChangeRoles extends HttpServlet {
 		
         public void findUser()
         {
-        	String[] logins = new String[151];
+        	String[] logins = new String[300];
+        	String[] loginsFinal = new String[100];
         	String[] triple = new String[3];
+        	
+        	for ( int j = 0 ; j < 300; j++)
+        	{
+        		logins[j] = " ";
+        	}
         	
         	ClassLoader classLoader = getClass().getClassLoader();
         		    InputStream myFile = classLoader.getResourceAsStream("users");
@@ -74,8 +80,27 @@ public class ChangeRoles extends HttpServlet {
                       i++;
                      
         		    }
+        		    
+        		    for (i = 0; i < 40; i++){
+        		    	if (logins[3*i].equals(name))
+        		    	{
+        		    		if(role.equals("oneRole"))
+        		    		{
+        		    			logins[3*i+2] = "u";
+        		    		}
+        		    		if(role.equals("twoRole"))
+        		    		{
+        		    			logins[3*i+2] = "a";
+        		    		}
+        		    	}
+        		    }
+        		    
+        		    for (i= 0 ;i < 40;i++) {
+        		    loginsFinal[i] = logins[3*i] + " " + logins[3*i+1] + " " + logins[3*i+2];
+        		    }
         	
-        		    info = logins[0] + " / " + logins[1] + " / " + logins[2] + " / " + logins[3] + " / " + logins[4];
+        		   info = loginsFinal[0] + " /.../ " + loginsFinal[i];
+        		   //info = "Если " + logins[0] + " = " + name;
         		   
         }
 	}
