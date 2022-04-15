@@ -115,10 +115,12 @@ public class Entrance extends HttpServlet {
 					s = "1";
 					type = 1;
 				}
-				if(type == 0) 
-				{
-					s = "Неверный логин или пароль";
-				}
+				
+			}
+			
+			if(type == 0) 
+			{
+				s = "Неверный логин или пароль";
 			}
 		}
 		

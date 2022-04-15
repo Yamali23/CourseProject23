@@ -24,8 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-
-
 @WebServlet(name="Registration", urlPatterns="/JavaRegistration")
 public class Registration extends HttpServlet {
 	
@@ -34,7 +32,7 @@ public class Registration extends HttpServlet {
 		Adduser adduser = Adduser.fromRequestParameters(request);
 		
 		
-		adduser.writeToFile(request);		
+		adduser.writeToFile();		
 		
 		adduser.setAsRequestAttributesAndCalculate(request);
 		request.getRequestDispatcher("/Info.jsp").forward(request, response);
@@ -67,27 +65,61 @@ public class Registration extends HttpServlet {
 			request.getParameter("password"));
 		}
 		
-		private final void writeToFile(HttpServletRequest request) throws IOException{
+		private final void writeToFile() throws IOException{
 	        
 			String [] m = new String[51];
 			
 			String user = login + " " + password + " u";
-			File file = new File("users");
-			t = Files.exists(file.toPath());
-           
-			PrintWriter pw = new PrintWriter(file);
-	        pw.println(user);
-	        pw.close();
-
-			        ClassLoader classLoader = getClass().getClassLoader();
-				    InputStream myFile = classLoader.getResourceAsStream("users");
-				    Scanner scanner = new Scanner(myFile);
+			
+	    	
+	    	String filepath = new File("").getCanonicalPath();
+			String[] parsfilepath = filepath.split("/");
+			
+			int lengthpath = parsfilepath.length;
+			String abspath=""; 
+			for(int i=0;i<(lengthpath-1);i++) 
+			{
+				abspath=abspath+parsfilepath[i]+"/";
+			}
+			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+			//s = filepath;
+			//String imagepath=abspath+"webapps/WindowsCalculator/picture/ugatu.png";
+			//String fontpath =abspath+"/webapps/WindowsCalculator/users";
+	    	
+			
+			//t = Files.exists(file.toPath());
+			
+	
+		    ClassLoader classLoader = getClass().getClassLoader();
+		    InputStream myFile = classLoader.getResourceAsStream("users");
+		    Scanner scanner = new Scanner(myFile);
 				   
-				  
-				    while (scanner.hasNext())
-				    {       
-				       s = "Последнее в файлe " + scanner.nextLine();   
-				    }
+			String[] lines = new String[50]; 	
+			int k = 0;
+			 while (scanner.hasNext())
+				{       
+				   lines[k] = scanner.nextLine(); 
+				   k++;
+				}
+	        lines[k] = user;
+	        
+	        File file = new File(filepath + "users");
+			PrintWriter pw = new PrintWriter(file);
+			
+	        for (int d = 0; d <=k ; d++)
+	        {
+	        	pw.println(lines[d]);
+	        }
+	
+	        pw.close();
+	        
+	        
+	        
+	        /*File file = new File("users3").getAbsoluteFile();
+	        PrintWriter output = new PrintWriter(new File("users3").getAbsoluteFile());
+	        output.println(user);
+	        output.close();*/
+	        
 		}
 
 	}
