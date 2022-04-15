@@ -10,6 +10,10 @@
 
 <h2>Внимание! </h2> 
 <p> ${infa}</p> 
-<p><input type="submit" name="sign" value="Назад">
+
+<form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
+    <input type="submit" name="sign" value="Назад">
+ </form>  
+ 
 </body>
 </html>

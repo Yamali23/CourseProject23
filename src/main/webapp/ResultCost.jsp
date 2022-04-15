@@ -16,5 +16,9 @@
 <p>Тип стеклопакета:${TypeWind}</p> 
 <p><strong>Итоговая стоимость:</strong> ${FinalCost}</p> 
 
+<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
+    <input type="submit" name="sign" value="Назад">
+ </form>  
+
 </body>
 </html>

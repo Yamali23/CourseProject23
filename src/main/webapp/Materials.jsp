@@ -57,7 +57,9 @@
      
  <p><input type="submit" name="sign" value="Сохранить">
  </form>
+<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
     <input type="submit" name="sign" value="Назад">
+ </form>  
 
 </body>
 </html>
