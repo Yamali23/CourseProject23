@@ -69,7 +69,7 @@ public class Entrance extends HttpServlet {
 		
 		/*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
-			request.setAttribute("infa", s);
+			request.setAttribute("name", s);
 		}*/
 		
 		public void readFromFile() throws IOException

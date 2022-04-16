@@ -25,7 +25,7 @@ public class ChangeRoles extends HttpServlet {
 		roles.findUser();
 		roles.setAsRequestAttributesAndCalculate(request);
 		
-		request.getRequestDispatcher("/Info.jsp").forward(request, response);
+		request.getRequestDispatcher("/Roles.jsp").forward(request, response);
 	}
 	
 	private static class ChangeRole
