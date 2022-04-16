@@ -101,6 +101,8 @@ public class Entrance extends HttpServlet {
 		{
 			String myUser;
 			
+			type = 0;
+			
 			for (int i = 0; i <50; i++)
 			{
 				

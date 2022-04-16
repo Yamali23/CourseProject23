@@ -13,6 +13,6 @@
   	<url-pattern>/Connector</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>MainFormA.jsp</welcome-file>
+    <welcome-file>InputForm.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
