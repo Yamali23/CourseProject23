@@ -1,7 +1,9 @@
 
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.servlet.ServletException;
@@ -52,16 +54,17 @@ public class ChangeRoles extends HttpServlet {
 			request.getParameter("Role"));
 		}
 		
-        public void findUser()
+        public void findUser() throws IOException
         {
         	String[] logins = new String[300];
         	String[] loginsFinal = new String[100];
         	String[] triple = new String[3];
+        	int counter;
         	
-        	for ( int j = 0 ; j < 300; j++)
+        	/*for ( int j = 0 ; j < 300; j++)
         	{
         		logins[j] = " ";
-        	}
+        	}*/
         	
         	ClassLoader classLoader = getClass().getClassLoader();
         		    InputStream myFile = classLoader.getResourceAsStream("users");
@@ -81,7 +84,9 @@ public class ChangeRoles extends HttpServlet {
                      
         		    }
         		    
-        		    for (i = 0; i < 40; i++){
+        		    counter = i;
+        		    
+        		    for (i = 0; i < counter; i++){
         		    	if (logins[3*i].equals(name))
         		    	{
         		    		if(role.equals("oneRole"))
@@ -95,11 +100,28 @@ public class ChangeRoles extends HttpServlet {
         		    	}
         		    }
         		    
-        		    for (i= 0 ;i < 40;i++) {
+        		    String filepath = new File("").getCanonicalPath();
+        			String[] parsfilepath = filepath.split("/");
+        			
+        			int lengthpath = parsfilepath.length;
+        			String abspath=""; 
+        			
+        			for(i=0;i<(lengthpath-1);i++) 
+        			{
+        				abspath=abspath+parsfilepath[i]+"/";
+        			}
+        			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+        		    
+        		    File file = new File(filepath + "users");
+        			PrintWriter pw = new PrintWriter(file);
+        		    
+        		    for (i= 0 ;i < counter;i++) {
         		    loginsFinal[i] = logins[3*i] + " " + logins[3*i+1] + " " + logins[3*i+2];
+        		    pw.println(loginsFinal[i]);
         		    }
+        		    pw.close();
         	
-        		   info = loginsFinal[0] + " /.../ " + loginsFinal[i];
+        		   //info = loginsFinal[0] + " /.../ " + loginsFinal[i-1] + " " + i;
         		   //info = "Если " + logins[0] + " = " + name;
         		   
         }
