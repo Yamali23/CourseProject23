@@ -15,12 +15,12 @@
     <option value="right">Вправо</option>
     <option value="left">Влево</option>
     </select>
-    <img src= "Steam_Valentine.gif"> 
+
 <form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
-    <input type="submit" name="sign" value="Назад">
-    
+    <p><input type="submit" name="sign" value="Назад">
  </form>  
-   
+    
+    <img src= "Window_cut.gif">   
    
     
 </body>
