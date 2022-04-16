@@ -51,7 +51,7 @@
     <p><input type="submit" name="coef" value="Коэффициенты">
 </form>
 
-<form action="${pageContext.request.contextPath}/Roles.jsp" method="post">    
+<form action="${pageContext.request.contextPath}/FindUser.jsp" method="post">    
     <input type="submit" name="roles" value="Роли">
 </form>    
 
