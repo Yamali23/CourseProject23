@@ -31,7 +31,7 @@ public class FindUser extends HttpServlet {
 		}
 		if (exname == 0)
 		{
-			request.getRequestDispatcher("/MainFormA.jsp").forward(request, response);
+			request.getRequestDispatcher("/NotFound.jsp").forward(request, response);
 		}
 		
 	}

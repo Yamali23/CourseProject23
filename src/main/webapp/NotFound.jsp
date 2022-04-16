@@ -9,7 +9,7 @@
 <body>
 
 <h2>Изменение роли пользователя </h2>   
-<p>${name}</p>
+<h1 style="color:#FA0A0A;">${name}</h1>
 <p>
 <p>
     
