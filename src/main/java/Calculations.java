@@ -101,7 +101,7 @@ public class Calculations extends HttpServlet {
 				x = z-y;
 				s_s = Integer.toString(x);
 		 }
-		 public void calculator() {
+		 public void calculator() throws IOException {
 			 double[] price = new double[22];
 			 price[1] = 2*(a+b)*Double.parseDouble(coeff[1]);
 			 price[2] = (z-1)*(a-0.1)*Double.parseDouble(coeff[2]);
@@ -133,6 +133,7 @@ public class Calculations extends HttpServlet {
 			 if(pdf_s.equals("yes"))
 			 {
 				 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d);
+				 create.create();
 				
 			 }
 		 }

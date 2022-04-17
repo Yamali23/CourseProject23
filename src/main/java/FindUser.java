@@ -39,7 +39,7 @@ public class FindUser extends HttpServlet {
 	private static class Find
 	{
 		String name;
-		
+		String sss;
 		
 		private Find (String name) 
 		{
@@ -50,7 +50,7 @@ public class FindUser extends HttpServlet {
 		{
 			request.setAttribute("name", name);
 	
-			
+			///request.setAttribute("sss", sss);
 		}
 		
 		public static Find fromRequestParameters(HttpServletRequest request) 
@@ -88,10 +88,18 @@ public class FindUser extends HttpServlet {
         		    
         		    exname = 0;
         		    for (i = 0; i < counter; i++){
+        		    	///sss = sss  + logins[3*i] +" "+ name +" //// ";	
+        		    	
+        		    	String s1 = logins[3*i];
+        		    	String s2 = name;
+        		        
         		    	if (logins[3*i].equals(name))
         		    	{
         		    		exname = 1;
         		    	}
+        		    	
+        		    
+        		    	
         		    }
         		   
         }
