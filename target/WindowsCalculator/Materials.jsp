@@ -9,7 +9,7 @@
 <body>
 
 <h2>Изменение стоимости материалов и услуг </h2> 
-<form action="${pageContext.request.contextPath}/JavaCalc" method="post">
+<form action="${pageContext.request.contextPath}/MaterialsCost" method="post">
      <p><label for="cost1">Стоимость рамного профиля (м):
      </label> <input type="text" name="cost1" id="cost1" value=""> ${cost}
      <p><label for="cost2">Стоимость импоста (м): 
@@ -60,6 +60,7 @@
 <form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
     <input type="submit" name="sign" value="Назад">
  </form>  
+ 
 
 <p> ${infa} </p>
 
