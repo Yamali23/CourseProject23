@@ -3,6 +3,6 @@
   <display-name>Калькулятор</display-name>
  
   <welcome-file-list>
-    <welcome-file>FindUser.jsp</welcome-file>
+    <welcome-file>InputForm.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

@@ -30,7 +30,7 @@ public class Entrance extends HttpServlet {
 		input.readFromFile();
 		input.checkLoginAndPassword();
 		
-		//input.setAsRequestAttributesAndCalculate(request);
+		input.setAsRequestAttributesAndCalculate(request);
 		
 		if (type == 1)
 		{
@@ -42,7 +42,7 @@ public class Entrance extends HttpServlet {
 		}
 		if (type == 0)
 		{
-			request.getRequestDispatcher("/Info.jsp").forward(request, response);
+			request.getRequestDispatcher("/InputForm.jsp").forward(request, response);
 		}
 		
 		
@@ -58,7 +58,7 @@ public class Entrance extends HttpServlet {
 		{
 			this.login = login;
 			this.password = password;	
-			s = password;
+			
 		}
 		
 		public static Input fromRequestParameters(HttpServletRequest request) {
@@ -67,10 +67,11 @@ public class Entrance extends HttpServlet {
 			request.getParameter("password"));
 			}
 		
-		/*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
+		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
-			request.setAttribute("name", s);
-		}*/
+			
+			request.setAttribute("infa", s);
+		}
 		
 		public void readFromFile() throws IOException
 		{

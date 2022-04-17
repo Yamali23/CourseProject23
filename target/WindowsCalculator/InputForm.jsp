@@ -20,9 +20,10 @@
 
 
 <form action="${pageContext.request.contextPath}/Registration.jsp" method="post">
-<p><input type="submit" name="reg" value="Зарегистрироваться">
+<p><input type="submit" name="reg" value="Зарегистрироваться"> 
 </form>
 
+<p> ${infa} </p>
 
 </body>
 </html>
