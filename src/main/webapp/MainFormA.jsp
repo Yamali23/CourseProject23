@@ -15,7 +15,7 @@
 
 <p><strong><label for="number-select">Количество створок:</label></strong>
 <select name="NumStvor" id="number-select">
-    <option value="NS">--Выберите количество створок--</option>
+   
     <option value="1">Одна</option>
     <option value="2">Две</option>
     <option value="3">Три</option>
@@ -23,7 +23,7 @@
     
     <p><strong><label for="number-select">Количество откидных створок:</label></strong>
 <select name="NumFuncStvor" id="number-select">
-    <option value="NFS">--Выберите количество откидных створок--</option>
+    
     <option value="1">Одна</option>
     <option value="2">Две</option>
     <option value="3">Три</option>
@@ -31,7 +31,7 @@
     
     <p><strong><label for="number-select">Тип стеклопакета:</label></strong>
 <select name="TypeWind" id="number-select">
-    <option value="TW">--Выберите тип стеклопакета--</option>
+    
     <option value="1">Одномерный</option>
     <option value="2">Двукамерный</option>
     </select>

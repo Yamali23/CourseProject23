@@ -128,11 +128,6 @@ public class Entrance extends HttpServlet {
 			}
 		}
 		
-		/*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) 
-		{
-			request.setAttribute("first_result", login);
-			request.setAttribute("second_result", password);
-			
-		}*/
+		
 	}
 }

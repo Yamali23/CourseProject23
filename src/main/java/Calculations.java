@@ -129,6 +129,12 @@ public class Calculations extends HttpServlet {
 				finalcost += price[i]; 
 			 }
 			 finalcost = Math.round(finalcost);
+			 
+			 if(pdf_s.equals("yes"))
+			 {
+				 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d);
+				
+			 }
 		 }
 		 
 		 

@@ -13,8 +13,8 @@
 
 
 <form action="${pageContext.request.contextPath}/JavaEntrance" method="post">
-<p><strong>Логин:</strong> <input type="text" name="login" id="login" value="">
-<p><strong>Пароль:</strong> <input type="text" name="password" id="password" value="">
+<p><strong>Логин:</strong> <input type="text" name="login" id="login" value="admin">
+<p><strong>Пароль:</strong> <input type="text" name="password" id="password" value="qwerty">
 <p><input type="submit" name="ent" value="Войти">
 </form>
 
