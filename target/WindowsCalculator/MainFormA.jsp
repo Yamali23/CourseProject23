@@ -7,7 +7,7 @@
 <title>Ввод параметров (администратор)</title>
 </head>
 <body>
-<p> ${infa}</p> 
+<p> ${name}</p> 
 <h2>Задайте параметры для расчета : </h2> 
 <form action="${pageContext.request.contextPath}/JavaCalc" method="post">
 <p><strong>Высота:</strong> <input type="text" name="height" id="height" value=""> 
@@ -57,9 +57,9 @@
     <input type="submit" name="roles" value="Роли">
 </form>    
 
-<form action="${pageContext.request.contextPath}/3dModel.jsp" method="post">
-<p><input type="submit" name="3d" value="Трёхмерная модель окна">
-</form>
+<form action="${pageContext.request.contextPath}/InputForm.jsp" method="post">    
+    <p><input type="submit" name="exit" value="Выход">
+</form>  
 
 </body>
 </html>

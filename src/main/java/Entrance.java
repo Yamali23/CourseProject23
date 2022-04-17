@@ -21,6 +21,7 @@ public class Entrance extends HttpServlet {
 	
 	static String[] user = new String[51];
 	static String s;
+	static String yourName;
 	static private int type = 0;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -69,7 +70,7 @@ public class Entrance extends HttpServlet {
 		
 		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
-			
+			request.setAttribute("name", yourName);
 			request.setAttribute("infa", s);
 		}
 		
@@ -109,13 +110,13 @@ public class Entrance extends HttpServlet {
 				
 				if (user[i].equals(login + " " + password + " a"))
 				{
-					
+					yourName = "Вы вошли как " + login;
 					type = 2;
 					
 				}
 				if (user[i].equals(login + " " + password + " u"))
 				{
-					
+					yourName = "Вы вошли как " + login;
 					type = 1;
 				}
 				
