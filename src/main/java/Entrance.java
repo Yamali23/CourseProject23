@@ -111,11 +111,11 @@ public class Entrance extends HttpServlet {
 				{
 					
 					type = 2;
-					s = "2";
+					
 				}
 				if (user[i].equals(login + " " + password + " u"))
 				{
-					s = "1";
+					
 					type = 1;
 				}
 				

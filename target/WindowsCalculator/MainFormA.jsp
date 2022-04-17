@@ -47,6 +47,8 @@
 </select>
 </form>
 
+<p> ${infa} </p>
+
 <form action="${pageContext.request.contextPath}/Materials.jsp" method="post">    
     <p><input type="submit" name="coef" value="Коэффициенты">
 </form>

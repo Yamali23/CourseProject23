@@ -47,6 +47,8 @@
 </select>
 </form>
 
+<p> ${infa} </p>
+
 <form action="${pageContext.request.contextPath}/3dModel.jsp" method="post">
 <p><input type="submit" name="3d" value="Трёхмерная модель окна">
 </form>

@@ -61,5 +61,7 @@
     <input type="submit" name="sign" value="Назад">
  </form>  
 
+<p> ${infa} </p>
+
 </body>
 </html>

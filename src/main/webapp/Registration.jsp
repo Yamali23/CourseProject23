@@ -16,6 +16,8 @@
 <p><strong>Пароль:</strong> <input type="text" name="password" id="password" value="">
 <p><input type="submit" name="ent" value="Зарегистрироваться">
 
+<p> ${infa} </p>
+
 <form action="${pageContext.request.contextPath}/InputForm.jsp" method="post">
     <input type="submit" name="sign" value="Назад">
  </form>  
