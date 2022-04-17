@@ -20,7 +20,7 @@ public class Calculations extends HttpServlet {
 		
 		stash.reader();
 		stash.converter();
-		stash.calculator();
+
 		
 		stash.setAsRequestAttributesAndCalculate(request);
 		request.getRequestDispatcher("/ResultCost.jsp").forward(request, response);
@@ -36,6 +36,7 @@ public class Calculations extends HttpServlet {
 		String d_s;
 		String pdf_s;
 		String s_s;
+		String err1, err2, err3, err4, err5;
 		
 		double a;
 		double b;
@@ -43,6 +44,7 @@ public class Calculations extends HttpServlet {
 		int y;
 		int d;
 		int x;
+		int c;
 		
 		double finalcost = 0;
 		
@@ -66,6 +68,11 @@ public class Calculations extends HttpServlet {
 			request.setAttribute("NumFuncStvor", y);
 			request.setAttribute("TypeWind", d);
 			request.setAttribute("FinalCost", finalcost);
+			request.setAttribute("Error1", err1);
+			request.setAttribute("Error2", err2);
+			request.setAttribute("Error3", err3);
+			request.setAttribute("Error4", err4);
+			request.setAttribute("Error5", err5);
 		}
 		
 		public static Stash fromRequestParameters(HttpServletRequest request) 
@@ -92,14 +99,47 @@ public class Calculations extends HttpServlet {
 		    }
 	}
 		 
-		 public void converter() {
-			 	a = Double.parseDouble(a_s);
-				b = Double.parseDouble(b_s);
+		 public void converter() throws IOException {
+			 try {
+				 	a = Double.parseDouble(a_s);
+					b = Double.parseDouble(b_s);
+					}
+					catch (NumberFormatException e) {
+						a=0;
+						b=0;
+						finalcost=0;
+						err1="Некорректные значения ширины или высоты";
+						c = c + 1;
+					}
+			 	
 				z = Integer.parseInt(z_s);
 				y = Integer.parseInt(y_s);
 				d = Integer.parseInt(d_s);
 				x = z-y;
 				s_s = Integer.toString(x);
+				if (z < y) {
+					err2="Количество откидных створок не может быть больше общего количества створок";
+					c = c + 1;
+				}
+				
+				if ((a < 0.5) || (b < 0.5)){
+					err3="Значения ширины и высоты не могут быть меньше 0.5";
+					c = c + 1;
+				}
+				
+				if ((a > 2.5) || (b > 2.5)){
+					err4="Значения ширины и высоты не могут быть больше 2.5";
+					c = c + 1;
+				}
+				
+				if ((a / z) < 0.5) {
+					err5="Ширина створки не может быть меньше, чем 0.5";
+					c = c + 1;
+				}
+				
+				if (c == 0) {
+				calculator();
+				}
 		 }
 		 public void calculator() throws IOException {
 			 double[] price = new double[22];

@@ -15,6 +15,11 @@
 <p>Количество откидных створок: ${NumFuncStvor}</p> 
 <p>Тип стеклопакета:${TypeWind}</p> 
 <p><strong>Итоговая стоимость:</strong> ${FinalCost}</p> 
+<p>${Error1}</p> 
+<p>${Error2}</p> 
+<p>${Error3}</p> 
+<p>${Error4}</p> 
+<p>${Error5}</p> 
 
 <form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
     <input type="submit" name="sign" value="Назад">
