@@ -40,8 +40,8 @@ public class MaterialsCost extends HttpServlet {
 	private Costs  (String cost1, String cost2, String cost3, String cost4, String cost5, String cost6, String cost7, String cost8, String cost9, String cost10, String cost11, String cost12, String cost13, String cost14, String cost15, String cost16, String cost17, String cost18, String cost19, String cost20, String cost21, String cost22) 
 	{
 		costArray[1] = cost1;
-		costArray[2] = cost2;
-        costArray[3] = cost3;
+	    costArray[2] = cost2;
+		costArray[3] = cost3;
 		costArray[4] = cost4;
 		costArray[5] = cost5;
 		costArray[6] = cost6;
@@ -61,33 +61,35 @@ public class MaterialsCost extends HttpServlet {
 		costArray[20] = cost20;
 		costArray[21] = cost21;
 		costArray[22] = cost22;
+		
+		
 	}
 	
 	public static Costs fromRequestParameters(HttpServletRequest request) 
 	{
 		return new Costs(
-		request.getParameter("Cost1"),
-		request.getParameter("Cost2"),
-		request.getParameter("Cost3"),
-		request.getParameter("Cost4"),
-		request.getParameter("Cost5"),
-		request.getParameter("Cost6"),
-		request.getParameter("Cost7"),
-		request.getParameter("Cost8"),
-		request.getParameter("Cost9"),
-		request.getParameter("Cost10"),
-		request.getParameter("Cost11"),
-		request.getParameter("Cost12"),
-		request.getParameter("Cost13"),
-		request.getParameter("Cost14"),
-		request.getParameter("Cost15"),
-		request.getParameter("Cost16"),
-		request.getParameter("Cost17"),
-		request.getParameter("Cost18"),
-		request.getParameter("Cost19"),
-		request.getParameter("Cost20"),
-		request.getParameter("Cost21"),
-		request.getParameter("Cost22"));
+		request.getParameter("cost1"),
+		request.getParameter("cost2"),
+		request.getParameter("cost3"),
+		request.getParameter("cost4"),
+		request.getParameter("cost5"),
+		request.getParameter("cost6"),
+		request.getParameter("cost7"),
+		request.getParameter("cost8"),
+		request.getParameter("cost9"),
+		request.getParameter("cost10"),
+		request.getParameter("cost11"),
+		request.getParameter("cost12"),
+		request.getParameter("cost13"),
+		request.getParameter("cost14"),
+		request.getParameter("cost15"),
+		request.getParameter("cost16"),
+		request.getParameter("cost17"),
+		request.getParameter("cost18"),
+		request.getParameter("cost19"),
+		request.getParameter("cost20"),
+		request.getParameter("cost21"),
+		request.getParameter("cost22"));
 	}
 	
 	
@@ -123,19 +125,22 @@ public class MaterialsCost extends HttpServlet {
 		
 		File file = new File(filepath + "coeffs");
 			PrintWriter pw = new PrintWriter(file);
-			
+		
         	int s = 0;
-	        for (int d = 1; d <23 ; d++)
+	        for (int d = 1; d <=22 ; d++)
 	        {
-	        	if (Double.parseDouble(costArray[d]) > 0) {
-	        		if (Double.parseDouble(costArray[d]) < 1000000) {
-	        			costFileArray[d] = costArray[d];
-	        			s ++;
-	        		}
-	        	}
+	            if(costArray[d].length() > 0)
+	            {
+	        	   if (Double.parseDouble(costArray[d]) > 0) {
+	        		   if (Double.parseDouble(costArray[d]) < 100000) {
+	        			   costFileArray[d] = costArray[d];
+	        			   s ++;
+	        		   }
+	        	   }
+	            }  
 	        	pw.println(costFileArray[d]);
 	        }
-	
+        	
 	        pw.close();
 	        massage = s + " значений было изменено";
 	    
