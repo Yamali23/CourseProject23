@@ -11,7 +11,7 @@
 <h2>Изменение роли пользователя </h2> 
 
 <form action="${pageContext.request.contextPath}/JavaFindUser" method="post">    
-<p><input type="text" name="userName" id="first" value=" ">
+<p><input type="text" name="userName" id="first" value="">
 
 <p>
     
