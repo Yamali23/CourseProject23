@@ -8,9 +8,20 @@
   	<servlet-name>MaterialsCost</servlet-name>
   	<servlet-class>MaterialsCost</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>For3dModel</display-name>
+  	<servlet-name>For3dModel</servlet-name>
+  	<servlet-class>For3dModel</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MaterialsCost</servlet-name>
   	<url-pattern>/MaterialsCost</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>For3dModel</servlet-name>
+  	<url-pattern>/For3dModel</url-pattern>
   </servlet-mapping>
  
   <welcome-file-list>

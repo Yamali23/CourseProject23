@@ -10,15 +10,18 @@
 
 <h2>3D модель окна в разрезе  </h2> 
 
+<form action="${pageContext.request.contextPath}/Java3D" method="post">
 <p><select name="number" id="number-select">
     <option value="pause">Пауза</option>
     <option value="right">Вправо</option>
     <option value="left">Влево</option>
     </select>
+    <p><input type="submit" name="apply" value="Приминить">
+    </form>
 
 <form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
     <p><input type="submit" name="sign" value="Назад">
- </form>  
+</form>  
     
     <img src= "Window_cut.gif">   
    
