@@ -2,7 +2,7 @@
 import java.io.File;
 import java.io.FileInputStream;
 
-/*import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -13,29 +13,29 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;*/
+import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.util.stream.Stream;
 
-import javax.swing.ImageIcon;
-
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+/*import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.util.Units;
-//import org.apache.poi.xwpf.usermodel.*;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
-import org.apache.poi.xwpf.usermodel.XWPFTableRow;
+import org.apache.poi.xwpf.usermodel.XWPFTableRow;*/
 
 public class CreatePDF 
 {
-	double[] price = new double[22];
-	String[] coeff = new String[23];
-    String[] quant = new String[22];
+	double[] price = new double[22]; //стоимость
+	String[] coeff = new String[23]; //цена
+    String[] quant = new String[22]; //количество
+    String[] materials = new String[22]; //название материала
     double a,b;
     int x,y,z,d;
     
@@ -52,7 +52,151 @@ public class CreatePDF
 
     }
     
-   public void create() throws IOException, InvalidFormatException 
+     public void pdf() throws IOException {
+    	 Document document = new Document(); 
+     	
+    	 String filepath = new File("").getCanonicalPath();
+ 		String[] parsfilepath = filepath.split("/");
+ 		
+ 		int lengthpath = parsfilepath.length;
+ 		String abspath=""; 
+ 		for(int i=0;i<(lengthpath-1);i++) 
+ 		{
+ 			abspath=abspath+parsfilepath[i]+"/";
+ 		}
+ 		filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/Check.pdf";
+ 		String imagepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/logo.jpg";
+ 		String fontpath =abspath+"webapps/WindowsCalculator/WEB-INF/classes/times.ttf";
+     	
+ 		try {	
+ 			PdfWriter.getInstance(document, new FileOutputStream(filepath));
+ 		} catch (FileNotFoundException | DocumentException e) {
+ 			e.printStackTrace();
+ 		}
+ 					
+ 		document.open(); 
+ 		
+ 		BaseFont times = null;
+ 		try {
+ 			times = BaseFont.createFont(fontpath, "cp1251", BaseFont.EMBEDDED);
+ 		} catch (DocumentException | IOException e) {
+ 			e.printStackTrace();
+ 		}
+ 
+ /////////////просто строка////////////////////////////////////
+ 		String string_pdf = "строка1";
+ 		Paragraph paragraph = new Paragraph();
+ 	    paragraph.add(new Paragraph(string_pdf, new Font(times,14)));
+ 	    
+ 	    String string_pdf2 = "строка2";
+ 	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
+ 	
+ 	    try {
+ 			document.add(paragraph);
+ 		} catch (DocumentException e1) {
+ 			e1.printStackTrace();
+ 		}
+
+ 	      paragraph.clear();
+ ///////////////////пустая строка//////////////////////////////////////////////	      
+		 String string_pdf3 = " ";
+		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
+		 
+		 try {
+				document.add(paragraph);
+			} catch (DocumentException e1) {
+				e1.printStackTrace();
+			}
+  	
+ ///////////////////картинка/////////////////////////////	    
+ 	    Image img = null;
+ 		try {
+ 			img = Image.getInstance(imagepath);
+ 			
+ 			
+ 		} catch (BadElementException e2) {
+ 			
+ 			e2.printStackTrace();
+ 		} catch (MalformedURLException e2) {
+ 			
+ 			e2.printStackTrace();
+ 		} catch (IOException e2) {
+ 			
+ 			e2.printStackTrace();
+ 		}
+ 		
+ 		img.setAbsolutePosition(90, 100); 
+ 		
+ 		try {
+ 				document.add(img);
+ 			} catch (DocumentException e) {
+ 				e.printStackTrace();
+ 			}
+ 	
+ 		paragraph.clear();
+ ////////////////////пустая строка /////////////////////////////////////////////////////////////
+		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
+		 
+		 try {
+				document.add(paragraph);
+			} catch (DocumentException e1) {
+				e1.printStackTrace();
+			}
+ 		  
+ 		 try {
+ 				document.add(paragraph);
+ 			} catch (DocumentException e1) {
+ 				e1.printStackTrace();
+ 			}
+ /////////////////////////таблица////////////////////////////////////////////////////		
+ 		 PdfPTable table = new PdfPTable(4); 
+ 		 
+ 		 addRows(table);
+ 		 
+ 		 try {
+ 			document.add(table);
+ 		} catch (DocumentException e) {
+ 			e.printStackTrace();
+ 		}
+ 	    
+ 	    document.close(); 
+     }
+     
+     
+     private void addRows(PdfPTable table) {
+ 		 
+    	 
+        table.addCell("Матриал sdvddfcfe");
+ 	    table.addCell("Количество dgdrg");
+ 	    table.addCell("Цена dgfrg");
+ 	    table.addCell("Стоимость sgeg");
+ 	    
+ 	   table.addCell(coeff[1]);
+ 	   table.addCell(Double.toString(price[1]));
+ 	   table.addCell("789");
+ 	   table.addCell("357");
+  
+ 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /*public void create() throws IOException, InvalidFormatException 
    {
 	   XWPFDocument document = new XWPFDocument();
 	  
@@ -69,7 +213,7 @@ public class CreatePDF
 		}
 		filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
 		
-	   FileOutputStream out = new FileOutputStream(new File (filepath + "myFile.docx"));
+	   FileOutputStream out = new FileOutputStream(new File (filepath + "filePDF"));
 	   
 	   //XWPFParagraph par = document.createParagraph();
 	   //XWPFRun run = par.createRun();
@@ -127,6 +271,6 @@ public class CreatePDF
 	      document.close(); 
 	      
 	      
-       }
+       }*/
  
-}
+

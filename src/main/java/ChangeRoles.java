@@ -25,18 +25,20 @@ public class ChangeRoles extends HttpServlet {
 		roles.findUser();
 		roles.setAsRequestAttributesAndCalculate(request);
 		
-		request.getRequestDispatcher("/Roles.jsp").forward(request, response);
+		request.getRequestDispatcher("/FindUser.jsp").forward(request, response);
 	}
 	
 	private static class ChangeRole
 	{
 		String name;
 		String role;
-		String info;
+		String info = " ";
 		
 		private ChangeRole (String name, String role) 
 		{
 			this.name = name;
+			info = "имя " + name;
+			
 			this.role = role;
 		}
 		
@@ -50,7 +52,7 @@ public class ChangeRoles extends HttpServlet {
 		public static ChangeRole fromRequestParameters(HttpServletRequest request) 
 		{
 			return new ChangeRole(
-			request.getParameter("userName"),
+			request.getParameter("name"),
 			request.getParameter("Role"));
 		}
 		
@@ -60,11 +62,6 @@ public class ChangeRoles extends HttpServlet {
         	String[] loginsFinal = new String[100];
         	String[] triple = new String[3];
         	int counter;
-        	
-        	/*for ( int j = 0 ; j < 300; j++)
-        	{
-        		logins[j] = " ";
-        	}*/
         	
         	ClassLoader classLoader = getClass().getClassLoader();
         		    InputStream myFile = classLoader.getResourceAsStream("users");
@@ -83,10 +80,14 @@ public class ChangeRoles extends HttpServlet {
                       i++;
                      
         		    }
-        		    
+        		    //info = name;
         		    counter = i;
+        		    //info = role;
         		    
-        		    for (i = 0; i < counter; i++){
+        		    for (i = 0; i < counter; i++)
+        		    {
+        		    	//info = info + " {" + logins[3*i] + "} и" + " {" + name + "} /////";
+        		    	
         		    	if (logins[3*i].equals(name))
         		    	{
         		    		if(role.equals("oneRole"))
@@ -95,6 +96,7 @@ public class ChangeRoles extends HttpServlet {
         		    		}
         		    		if(role.equals("twoRole"))
         		    		{
+        		    			//info =info + " Зашли в иф по администратору";
         		    			logins[3*i+2] = "a";
         		    		}
         		    	}
@@ -115,14 +117,16 @@ public class ChangeRoles extends HttpServlet {
         		    File file = new File(filepath + "users");
         			PrintWriter pw = new PrintWriter(file);
         		    
-        		    for (i= 0 ;i < counter;i++) {
+        		    for (i= 0 ;i < counter;i++) 
+        		    {
+        		    	
         		    loginsFinal[i] = logins[3*i] + " " + logins[3*i+1] + " " + logins[3*i+2];
+        		    //info = info + loginsFinal[i] + " /// ";
         		    pw.println(loginsFinal[i]);
         		    }
         		    pw.close();
         	
-        		   //info = loginsFinal[0] + " /.../ " + loginsFinal[i-1] + " " + i;
-        		   //info = "Если " + logins[0] + " = " + name;
+        		  
         		   
         }
 	}

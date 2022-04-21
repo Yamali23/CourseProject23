@@ -12,7 +12,7 @@
 
 
 
-<h1 style="color:#00FF00;">${name}</h1>
+<h1 name="name" style="color:#00FF00;">${name}</h1>
 
 <form action="${pageContext.request.contextPath}/JavaChangeRoles" method="post">  
  

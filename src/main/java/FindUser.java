@@ -1,6 +1,4 @@
 
-
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 
 @WebServlet(name="FindUser", urlPatterns="/JavaFindUser")
 public class FindUser extends HttpServlet {
@@ -92,20 +88,9 @@ public class FindUser extends HttpServlet {
         		    counter = i;
         		   
         		    exname = 0;
-        		   /* sss = "{" + name + "} ";
+        		 
         		    
-        		    for(String x : logins)
-        		    {
-        		    	sss = sss + x + " ";
-        		    	if(x.equals(name)){
-        		            exname = 1;
-        		            sss = sss + "yesss";
-        		           
-        		        }
-        		    }*/
-        		    
-        		    
-        		    sss = "{" + name + "} ";
+        		    //sss = "{" + name + "} ";
         		    for (i = 0; i < counter; i++)
         		    {
    	                    
@@ -117,6 +102,8 @@ public class FindUser extends HttpServlet {
         	
         		    }
         }
+        
+       
 	}
 	
 	
