@@ -187,7 +187,7 @@ public class Calculations extends HttpServlet {
 			 
 			 if(pdf_s.equals("yes"))
 			 {
-				 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d);
+				 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d, finalcost);
 				 create.pdf();
 				
 			 }

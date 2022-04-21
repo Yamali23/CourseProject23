@@ -34,12 +34,14 @@ public class CreatePDF
 {
 	double[] price = new double[22]; //стоимость
 	String[] coeff = new String[23]; //цена
-    String[] quant = new String[22]; //количество
+    double[] quant = new double[22]; //количество
     String[] materials = new String[22]; //название материала
+    String[] price_s = new String[22];
+    String[] quant_s = new String[22];
     double a,b;
     int x,y,z,d;
-    
-     public CreatePDF(double[] price, String[] coeff, double a,  double b, int z, int y, int d)
+    double finalprice;
+     public CreatePDF(double[] price, String[] coeff,double a,  double b, int z, int y, int d, double finalprice)
     {
     	this.price = price;
     	this.coeff = coeff;
@@ -48,6 +50,7 @@ public class CreatePDF
     	this.y = y;
     	this.z = z;
     	this.d = d;
+    	this.finalprice = finalprice;
     	x = z - y;
 
     }
@@ -84,13 +87,16 @@ public class CreatePDF
  		}
  
  /////////////просто строка////////////////////////////////////
- 		String string_pdf = "строка1";
+ 		String string_pdf = "Итоги расчёта стоимости оконной конструкции";
  		Paragraph paragraph = new Paragraph();
- 	    paragraph.add(new Paragraph(string_pdf, new Font(times,14)));
+ 	    paragraph.add(new Paragraph(string_pdf, new Font(times,18)));
  	    
- 	    String string_pdf2 = "строка2";
- 	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
- 	
+ 	   String string_pdf2 = "Таблица стоимости материалов";
+	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
+ 	   
+	    String string_pdf9 = " ";
+	    paragraph.add(new Paragraph(string_pdf9, new Font(times,14)));
+	    
  	    try {
  			document.add(paragraph);
  		} catch (DocumentException e1) {
@@ -99,14 +105,14 @@ public class CreatePDF
 
  	      paragraph.clear();
  ///////////////////пустая строка//////////////////////////////////////////////	      
-		 String string_pdf3 = " ";
-		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
+		 /*String string_pdf3 = " ";
+		 paragraph.add(new Paragraph(string_pdf3, new Font(times,16)));
 		 
 		 try {
 				document.add(paragraph);
 			} catch (DocumentException e1) {
 				e1.printStackTrace();
-			}
+			} */
   	
  ///////////////////картинка/////////////////////////////	    
  	    Image img = null;
@@ -125,7 +131,7 @@ public class CreatePDF
  			e2.printStackTrace();
  		}
  		
- 		img.setAbsolutePosition(90, 100); 
+ 		img.setAbsolutePosition(417, 45); 
  		
  		try {
  				document.add(img);
@@ -135,7 +141,7 @@ public class CreatePDF
  	
  		paragraph.clear();
  ////////////////////пустая строка /////////////////////////////////////////////////////////////
-		 paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));
+		 //paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));//
 		 
 		 try {
 				document.add(paragraph);
@@ -149,18 +155,96 @@ public class CreatePDF
  				e1.printStackTrace();
  			}
  /////////////////////////таблица////////////////////////////////////////////////////		
+
  		 PdfPTable table = new PdfPTable(4); 
+ 		 nameMaterials();
+ 		 quantity();
+ 		 table.addCell(new Phrase("Материал", new Font(times,16)));
+ 		 table.addCell(new Phrase("Количество", new Font(times,16)));
+ 		 table.addCell(new Phrase("Цена", new Font(times,16)));
+ 		 table.addCell(new Phrase("Стоимость", new Font(times,16)));
  		 
- 		 addRows(table);
- 		 
+ 		for (int i = 1; i <= 18; i ++) {
+ 			table.addCell(new Phrase(materials[i], new Font(times,16)));
+ 	 		 table.addCell(new Phrase(quant_s[i], new Font(times,16)));
+ 	 		 table.addCell(new Phrase(coeff[i], new Font(times,16)));
+ 	 		 table.addCell(new Phrase(price_s[i], new Font(times,16)));
+ 		}
+ 		double materialscost = finalprice - price[19] - price[20] - price[21];
+ 		String materialscost_s = Double.toString(materialscost);
+ 	 		 table.addCell(new Phrase("Итого", new Font(times,16)));
+	 		 table.addCell(new Phrase("", new Font(times,16)));
+	 		 table.addCell(new Phrase("", new Font(times,16)));
+	 		 table.addCell(new Phrase(materialscost_s, new Font(times,16)));
+ 		
  		 try {
  			document.add(table);
  		} catch (DocumentException e) {
  			e.printStackTrace();
  		}
+ 		 	
+ 		String string_pdf4 = "Стоимость сборочных работ " + price[19];
+	    paragraph.add(new Paragraph(string_pdf4, new Font(times,14)));
+	    
+	    String string_pdf5 = "Стоимость аренды " + price[20];
+	    paragraph.add(new Paragraph(string_pdf5, new Font(times,14)));
+	    
+	    String string_pdf6 = "Стоимость электроэнергии " + price[21];
+	    paragraph.add(new Paragraph(string_pdf6, new Font(times,14)));
+ 		 
+	    try {
+ 			document.add(paragraph);
+ 		} catch (DocumentException e1) {
+ 			e1.printStackTrace();
+ 		}
+
+ 	      paragraph.clear();
+ 	      
+ 	     String string_pdf7 = "Итоговая стоимость оконных конструкций = " + finalprice;
+ 	    paragraph.add(new Paragraph(string_pdf7, new Font(times,16)));
  	    
+  	    try {
+  			document.add(paragraph);
+  		} catch (DocumentException e1) {
+  			e1.printStackTrace();
+  		}
+  	    
  	    document.close(); 
      }
+     
+     public void nameMaterials() {
+    	materials[1] = "Рамный профиль"; 
+    	materials[2] = "Импост";
+    	materials[3] = "Створчатый профиль";
+    	materials[4] = "Штапик";
+    	materials[5] = "Армирование";
+    	materials[6] = "Дист. рамка";
+    	materials[7] = "Селикогель";
+    	materials[8] = "Резиновый уплотнитель";
+    	materials[9] = "Герметик";
+    	materials[10] = "Бутиловая лента";
+    	materials[11] = "Стекло";
+    	materials[12] = "Поворотно-откидная конструцкия";
+    	materials[13] = "Лапы крепления импоста";
+    	materials[14] = "Соединители импоста";
+    	materials[15] = "Крепежи (саморезы)";
+    	materials[16] = "Монтажная пена";
+    	materials[17] = "Анкера";
+    	materials[18] = "Подкладка под стеклопакет";
+    	
+     }
+     
+     public void quantity() {
+    	for (int i = 1; i <= 18; i ++) {
+    		quant[i] = price[i] / Double.parseDouble(coeff[i]); 
+    		//quant [i] = Math.round(quant[i]);
+    		double shkala = Math.pow(10,2);
+    		quant[i] = Math.ceil(shkala * quant[i]) / shkala;
+    		quant_s[i] = Double.toString(quant[i]);
+    		price_s[i] = Double.toString(price[i]);
+    		
+    	} 
+     }	 
      
      
      private void addRows(PdfPTable table) {

@@ -14,7 +14,7 @@
      </label> <input type="text" name="cost1" id="cost1" value=""> ${cost}
      <p><label for="cost2">Стоимость импоста (м): 
      </label> <input type="text" name="cost2" id="cost2" value=""> 
-     <p><label for="cost3">Стоимость рамного профиля (м): 
+     <p><label for="cost3">Стоимость створчатого профиля (м): 
      </label> <input type="text" name="cost3" id="cost3" value=""> 
      <p><label for="cost4">Стоимость штапика шт: 
      </label> <input type="text" name="cost4" id="cost4" value=""> 
