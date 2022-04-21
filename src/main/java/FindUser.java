@@ -90,22 +90,39 @@ public class FindUser extends HttpServlet {
         		    exname = 0;
         		 
         		    
-        		    //sss = "{" + name + "} ";
         		    for (i = 0; i < counter; i++)
         		    {
    	                    
         		    	if (logins[3*i].equals(name))
         		    	{
         		    		exname = 1;
-        		    		
+        		    		rememberUser(logins[3*i]);
         		    	}
         	
         		    }
         }
-        
+       
+        public void rememberUser(String s) throws IOException 
+        {
+        	String filepath = new File("").getCanonicalPath();
+			String[] parsfilepath = filepath.split("/");
+			
+			int lengthpath = parsfilepath.length;
+			String abspath=""; 
+			for(int i=0;i<(lengthpath-1);i++) 
+			{
+				abspath=abspath+parsfilepath[i]+"/";
+			}
+			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+			
+			File file = new File(filepath + "buffer");
+			PrintWriter pw = new PrintWriter(file);
+			
+	        pw.println(s);
+
+	        pw.close();
+        }
        
 	}
-	
-	
 
 }

@@ -80,13 +80,14 @@ public class ChangeRoles extends HttpServlet {
                       i++;
                      
         		    }
-        		    //info = name;
-        		    counter = i;
-        		    //info = role;
         		    
+        		    counter = i;
+        		    
+        		    readFromBuffer();
+        		    info = name + " " + role;
         		    for (i = 0; i < counter; i++)
         		    {
-        		    	//info = info + " {" + logins[3*i] + "} и" + " {" + name + "} /////";
+        		    	
         		    	
         		    	if (logins[3*i].equals(name))
         		    	{
@@ -96,7 +97,7 @@ public class ChangeRoles extends HttpServlet {
         		    		}
         		    		if(role.equals("twoRole"))
         		    		{
-        		    			//info =info + " Зашли в иф по администратору";
+        		    			
         		    			logins[3*i+2] = "a";
         		    		}
         		    	}
@@ -121,13 +122,21 @@ public class ChangeRoles extends HttpServlet {
         		    {
         		    	
         		    loginsFinal[i] = logins[3*i] + " " + logins[3*i+1] + " " + logins[3*i+2];
-        		    //info = info + loginsFinal[i] + " /// ";
+        		   
         		    pw.println(loginsFinal[i]);
         		    }
         		    pw.close();
-        	
-        		  
-        		   
+    	   
+        }
+        
+        public void readFromBuffer() 
+        {
+        	ClassLoader classLoader = getClass().getClassLoader();
+		    InputStream myFile = classLoader.getResourceAsStream("buffer");
+		    Scanner scanner = new Scanner(myFile);
+		    
+		    name = scanner.nextLine();
+		    
         }
 	}
 	
