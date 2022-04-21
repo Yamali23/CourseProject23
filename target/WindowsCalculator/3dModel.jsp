@@ -10,7 +10,7 @@
 
 <h2>3D модель окна в разрезе  </h2> 
 
-<form action="${pageContext.request.contextPath}/Java3D" method="post">
+<form action="${pageContext.request.contextPath}/For3dModel" method="post">
 <p><select name="number" id="number-select">
     <option value="pause">Пауза</option>
     <option value="right">Вправо</option>

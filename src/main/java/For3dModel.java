@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name="For3dModel", urlPatterns="/Java3D")
+@WebServlet(name="For3dModel", urlPatterns="/For3dModel")
 public class For3dModel extends HttpServlet {
-static int a;
+static int a = 0;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Reader roles = Reader.fromRequestParameters(request);
@@ -19,7 +19,7 @@ static int a;
 		}
 		if (a == 2)
 		{
-			request.getRequestDispatcher("/3dModel.jsp.jsp").forward(request, response);
+			request.getRequestDispatcher("/3dModel.jsp").forward(request, response);
 		}
 		if (a == 3)
 		{
@@ -28,7 +28,7 @@ static int a;
 	}
 
 	public static class Reader{
-		String ls;
+		String ls = " ";
 		private Reader (String name) 
 		{
 			this.ls = name;
@@ -36,7 +36,7 @@ static int a;
 		public static Reader fromRequestParameters(HttpServletRequest request) 
 		{
 			return new Reader(
-			request.getParameter("userName"));
+			request.getParameter("number"));
 		}
 		
 		public void checker() {
