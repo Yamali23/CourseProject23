@@ -16,7 +16,7 @@
     <option value="right">Вправо</option>
     <option value="left">Влево</option>
     </select>
-    <p><input type="submit" name="apply" value="Приминить">
+    <p><input type="submit" name="apply" value="Применить">
     </form>
 
 <form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
