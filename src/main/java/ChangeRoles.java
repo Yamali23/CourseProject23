@@ -21,14 +21,14 @@ public class ChangeRoles extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		ChangeRole roles = ChangeRole.fromRequestParameters(request);
-		roles.findUser();
+		Roles roles = Roles.fromRequestParameters(request);
+		roles.writer();
 		roles.setAsRequestAttributesAndCalculate(request);
 		
 		request.getRequestDispatcher("/FindUser.jsp").forward(request, response);
 	}
 	
-	private static class ChangeRole
+/*	private static class ChangeRole
 	{
 		String name;
 		String role;
@@ -138,7 +138,7 @@ public class ChangeRoles extends HttpServlet {
 		    name = scanner.nextLine();
 		    
         }
-	}
+	}*/
 	
 	
 
