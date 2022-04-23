@@ -18,17 +18,26 @@ public class Roles {
 	
 	Roles (String name, String role) 
 	{
-		this.name = name;
-		info = "имя " + name;
+		//this.name = name;
+		
 		
 		this.role = role;
-		try {
-			findUser(role, name);
+		/*try {
+			findUser(role, this.name);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
+	public String getName() {
+		return name;
+	}
+	public String getRole() {
+		return role;
+	}
+	public String[] getArray() {
+		return logins;
+	}
 	public void setAsRequestAttributesAndCalculate(HttpServletRequest request) 
 	{
 		request.setAttribute("infa", info);
@@ -43,7 +52,7 @@ public class Roles {
 		request.getParameter("Role"));
 	}
 	
-    public String[] findUser(String role, String name) throws IOException
+    public void findUser(String role, String name) throws IOException
     {
     	
     	
@@ -67,7 +76,7 @@ public class Roles {
     		    
     		    counter = i;
     		    
-    		    readFromBuffer();
+    		    
     		    info = name + " " + role;
     		    for (i = 0; i < counter; i++)
     		    {
@@ -86,7 +95,7 @@ public class Roles {
     		    		}
     		    	}
     		    }
-    		    return logins;
+    
     }
     public void writer() throws IOException
     {

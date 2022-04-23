@@ -22,6 +22,11 @@ public class ChangeRoles extends HttpServlet {
 		
 		
 		Roles roles = Roles.fromRequestParameters(request);
+		roles.readFromBuffer();
+		String name = roles.getName();
+		String role = roles.getRole();
+		
+		roles.findUser(role,name);
 		roles.writer();
 		roles.setAsRequestAttributesAndCalculate(request);
 		

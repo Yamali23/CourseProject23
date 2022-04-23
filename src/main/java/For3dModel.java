@@ -39,7 +39,9 @@ static int a = 0;
 			request.getParameter("number"));
 		}
 		
-		public void checker() {
+		public void checker() 
+		{
+			
 			if (ls.equals("pause")){
 				a=1;
 			}
