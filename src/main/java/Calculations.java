@@ -22,7 +22,14 @@ public class Calculations extends HttpServlet {
 		
 		stash.reader();
 		
-	    stash.converter();
+		
+	    String a = stash.getA();
+	    String b = stash.getB();
+	    String z = stash.getZ();
+	    String y = stash.getY();
+	    String d = stash.getD();
+		
+		stash.converter(a,b,z,y,d);
 	
 
 		

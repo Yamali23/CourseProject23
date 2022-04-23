@@ -22,7 +22,7 @@ public class Stash {
 	int y;
 	int d;
 	int x;
-	int c;
+	
 	
 	double finalcost = 0;
 	
@@ -54,7 +54,21 @@ public class Stash {
 		request.setAttribute("Error4", err4);
 		request.setAttribute("Error5", err5);
 	}
-	
+	public String getA() {
+		return a_s;
+	}
+	public String getB() {
+		return b_s;
+	}
+	public String getZ() {
+		return z_s;
+	}
+	public String getY() {
+		return y_s;
+	}
+	public String getD() {
+		return d_s;
+	}
 	public static Stash fromRequestParameters(HttpServletRequest request) 
 	{
 		return new Stash(
@@ -66,6 +80,9 @@ public class Stash {
 		request.getParameter("PDF"));
 	}
 	
+	/*public Stash() {
+		reader();
+	}*/
 	 public void reader() {
 	 ClassLoader classLoader = getClass().getClassLoader();
 	    InputStream myFile = classLoader.getResourceAsStream("coeffs");
@@ -79,7 +96,8 @@ public class Stash {
 	    }
 }
 	 
-	 public void converter() throws IOException {
+	 public int converter(String a_s,String b_s,String z_s,String y_s,String d_s) throws IOException {
+		 int c = 0;
 		 try {
 			 	a = Double.parseDouble(a_s);
 				b = Double.parseDouble(b_s);
@@ -125,6 +143,8 @@ public class Stash {
 			if (c == 0) {
 			calculator(a,b,z,x,y,d);
 			}
+			
+		return c;	
 	 }
 	 public double calculator(double a, double b, int z, int x, int y, int d) throws IOException{
 		 double[] price = new double[22];
