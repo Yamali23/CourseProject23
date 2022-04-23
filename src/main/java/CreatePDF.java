@@ -54,7 +54,9 @@ public class CreatePDF
     	x = z - y;
 
     }
-    
+   public CreatePDF() {
+	   
+   }
      public void pdf() throws IOException {
     	 Document document = new Document(); 
      	
@@ -141,7 +143,7 @@ public class CreatePDF
  	
  		paragraph.clear();
  ////////////////////пустая строка /////////////////////////////////////////////////////////////
-		 //paragraph.add(new Paragraph(string_pdf3, new Font(times,14)));//
+		
 		 
 		 try {
 				document.add(paragraph);
@@ -158,7 +160,7 @@ public class CreatePDF
 
  		 PdfPTable table = new PdfPTable(4); 
  		 nameMaterials();
- 		 quantity();
+ 		 quantity(price, coeff);
  		 table.addCell(new Phrase("Материал", new Font(times,16)));
  		 table.addCell(new Phrase("Количество", new Font(times,16)));
  		 table.addCell(new Phrase("Цена", new Font(times,16)));
@@ -171,6 +173,7 @@ public class CreatePDF
  	 		 table.addCell(new Phrase(price_s[i], new Font(times,16)));
  		}
  		double materialscost = finalprice - price[19] - price[20] - price[21];
+ 		materialscost = Math.round(materialscost);
  		String materialscost_s = Double.toString(materialscost);
  	 		 table.addCell(new Phrase("Итого", new Font(times,16)));
 	 		 table.addCell(new Phrase("", new Font(times,16)));
@@ -182,7 +185,9 @@ public class CreatePDF
  		} catch (DocumentException e) {
  			e.printStackTrace();
  		}
- 		 	
+ 		 
+ 		 
+ 		price[19] = Math.round(price[19]);	
  		String string_pdf4 = "Стоимость сборочных работ " + price[19];
 	    paragraph.add(new Paragraph(string_pdf4, new Font(times,14)));
 	    
@@ -234,33 +239,28 @@ public class CreatePDF
     	
      }
      
-     public void quantity() {
+     public double[] getPrice() {
+    	 return price;
+     }
+     
+     public double[] quantity(double[] price, String[] coeff) 
+     {
     	for (int i = 1; i <= 18; i ++) {
     		quant[i] = price[i] / Double.parseDouble(coeff[i]); 
-    		//quant [i] = Math.round(quant[i]);
+    		
     		double shkala = Math.pow(10,2);
+    		
     		quant[i] = Math.ceil(shkala * quant[i]) / shkala;
     		quant_s[i] = Double.toString(quant[i]);
+    		
+    		price[i] = Math.ceil(shkala * price[i]) / shkala;
     		price_s[i] = Double.toString(price[i]);
     		
     	} 
+    	return quant;
      }	 
      
-     
-     private void addRows(PdfPTable table) {
- 		 
-    	 
-        table.addCell("Матриал sdvddfcfe");
- 	    table.addCell("Количество dgdrg");
- 	    table.addCell("Цена dgfrg");
- 	    table.addCell("Стоимость sgeg");
- 	    
- 	   table.addCell(coeff[1]);
- 	   table.addCell(Double.toString(price[1]));
- 	   table.addCell("789");
- 	   table.addCell("357");
-  
- 	}
+   
 }
 
 
