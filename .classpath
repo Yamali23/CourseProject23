@@ -15,6 +15,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -35,7 +36,6 @@
 	<classpathentry kind="lib" path="lib/poi-ooxml-full-5.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/poi-ooxml-lite-5.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/poi-scratchpad-5.2.2.jar"/>
-	<classpathentry kind="lib" path="/home/aleksandra/Downloads/poi-bin-5.2.2-20220312/poi-bin-5.2.2/poi-examples-5.2.2.jar"/>
 	<classpathentry kind="lib" path="lib/PDFv.2.0-2.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
