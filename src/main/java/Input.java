@@ -19,9 +19,7 @@ public class Input {
 	{
 		this.login = login;
 		this.password = password;	
-		
-		
-		
+	
 	}
 	
 	public static Input fromRequestParameters(HttpServletRequest request) {

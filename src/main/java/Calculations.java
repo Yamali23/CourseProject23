@@ -30,7 +30,7 @@ public class Calculations extends HttpServlet {
 		request.getRequestDispatcher("/ResultCost.jsp").forward(request, response);
 	}
 	
-	private static class Stash
+	/*private static class Stash
 	{
 		String [] coeff = new String[23];
 		String a_s;
@@ -188,6 +188,6 @@ public class Calculations extends HttpServlet {
 		 }
 		 
 		 
-	}		 
+	}	*/	 
 
 }
