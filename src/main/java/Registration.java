@@ -29,85 +29,10 @@ public class Registration extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Adduser adduser = Adduser.fromRequestParameters(request);
-		
-		
-		adduser.writeToFile();		
-		
-		//adduser.setAsRequestAttributesAndCalculate(request);
+		AddUser adduser = AddUser.fromRequestParameters(request);
+	
 		request.getRequestDispatcher("/InputForm.jsp").forward(request, response);
 	}
 
-	private static class Adduser
-	{
-		
-		 private final String login;
-		 private final String password;
-		 static String s;
-		 static boolean t;
-		
-		private Adduser  (String login, String password) 
-		{
-			this.login = login;
-			this.password = password;	
-			
-		}
-		
-        /*public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
-			
-			request.setAttribute("", s);
-		}*/
-		
-		public static Adduser fromRequestParameters(HttpServletRequest request) 
-		{
-			return new Adduser(
-			request.getParameter("login"),
-			request.getParameter("password"));
-		}
-		
-		private final void writeToFile() throws IOException{
-	        
-			String [] m = new String[51];
-			
-			String user = login + " " + password + " u";
-			
-	    	
-	    	String filepath = new File("").getCanonicalPath();
-			String[] parsfilepath = filepath.split("/");
-			
-			int lengthpath = parsfilepath.length;
-			String abspath=""; 
-			for(int i=0;i<(lengthpath-1);i++) 
-			{
-				abspath=abspath+parsfilepath[i]+"/";
-			}
-			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
-			
 	
-		    ClassLoader classLoader = getClass().getClassLoader();
-		    InputStream myFile = classLoader.getResourceAsStream("users");
-		    Scanner scanner = new Scanner(myFile);
-				   
-			String[] lines = new String[50]; 	
-			int k = 0;
-			 while (scanner.hasNext())
-				{       
-				   lines[k] = scanner.nextLine(); 
-				   k++;
-				}
-	        lines[k] = user;
-	        
-	        File file = new File(filepath + "users");
-			PrintWriter pw = new PrintWriter(file);
-			
-	        for (int d = 0; d <=k ; d++)
-	        {
-	        	pw.println(lines[d]);
-	        }
-	
-	        pw.close();
-	    
-		}
-
-	}
 }

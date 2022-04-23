@@ -19,9 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name="Entrance", urlPatterns="/JavaEntrance")
 public class Entrance extends HttpServlet {
 	
-	static String[] user = new String[51];
+	/*static String[] user = new String[51];
 	static String s;
-	static String yourName;
+	static String yourName;*/
 	static private int type = 0;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,6 +32,8 @@ public class Entrance extends HttpServlet {
 		input.checkLoginAndPassword();
 		
 		input.setAsRequestAttributesAndCalculate(request);
+		
+		type = input.getType();
 		
 		if (type == 1)
 		{
@@ -49,7 +51,7 @@ public class Entrance extends HttpServlet {
 		
 		}
 	
-	private static class Input 
+	/*private static class Input 
 	{
 		
 		 private  String login;
@@ -129,5 +131,5 @@ public class Entrance extends HttpServlet {
 		}
 		
 		
-	}
+	}*/
 }

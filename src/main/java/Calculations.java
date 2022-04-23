@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
 
 @WebServlet(name="Calculations", urlPatterns="/JavaCalc")
 
@@ -21,15 +21,9 @@ public class Calculations extends HttpServlet {
 		Stash stash = Stash.fromRequestParameters(request);
 		
 		stash.reader();
-		try {
-			stash.converter();
-		} catch (InvalidFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+	    stash.converter();
+	
 
 		
 		stash.setAsRequestAttributesAndCalculate(request);
@@ -109,7 +103,7 @@ public class Calculations extends HttpServlet {
 		    }
 	}
 		 
-		 public void converter() throws IOException, InvalidFormatException {
+		 public void converter() throws IOException {
 			 try {
 				 	a = Double.parseDouble(a_s);
 					b = Double.parseDouble(b_s);
@@ -156,7 +150,7 @@ public class Calculations extends HttpServlet {
 				calculator();
 				}
 		 }
-		 public void calculator() throws IOException, InvalidFormatException {
+		 public void calculator() throws IOException{
 			 double[] price = new double[22];
 			 price[1] = 2*(a+b)*Double.parseDouble(coeff[1]);
 			 price[2] = (z-1)*(a-0.1)*Double.parseDouble(coeff[2]);
