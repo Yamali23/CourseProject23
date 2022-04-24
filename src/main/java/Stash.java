@@ -25,7 +25,7 @@ public class Stash {
 	String pdf_s;
 	String s_s;
 	String err1, err2, err3, err4, err5;
-	
+	double[] s;
 	double a;
 	double b;
 	int z;
@@ -238,10 +238,24 @@ public class Stash {
 		 price[20] = Double.parseDouble(coeff[21]);
 		 price[21] = Double.parseDouble(coeff[22]);
 		 
-		 for (int i=1;i<22;i++) {
+		
+		 Sum lambda = () ->
+		{
+			double res = 0;
+			for (int i=1;i<22;i++) 
+			{
+				res += price[i]; 
+				
+			 }
+			return res;
+		};
+		
+		finalcost = lambda.getResult();
+		 
+		 /*for (int i=1;i<22;i++) {
 			finalcost += price[i]; 
-		 }
-		 finalcost = Math.round(finalcost);
+		 }*/
+		finalcost = Math.round(finalcost);
 		 
 		 
 		 if(pdf_s.equals("yes"))
