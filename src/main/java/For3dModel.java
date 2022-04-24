@@ -25,6 +25,7 @@ public class For3dModel extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Reader roles = Reader.fromRequestParameters(request);
 		roles.checker();
+		a = roles.getA();
 		if (a == 1) {
 			request.getRequestDispatcher("/Pause.jsp").forward(request, response);
 		}
@@ -37,51 +38,5 @@ public class For3dModel extends HttpServlet {
 			request.getRequestDispatcher("/Left3dModel.jsp").forward(request, response);
 		}
 	}
- /**
-  * 
-  * Класс Reader для обработки введенных с формы данных
-  *
-  */
-	public static class Reader{
-		/**
-		 * Строка для хранения введенного на форму значения
-		 */
-		String ls = " ";
-		/**
-		 * Конструктор 
-		 * @param name - тип отображения модели
-		 */
-		private Reader (String name) 
-		{
-			this.ls = name;
-		}
-		/**
-		 * 
-		 * Метод для считывания данных с формы
-		 */
-		public static Reader fromRequestParameters(HttpServletRequest request) 
-		{
-			return new Reader(
-			request.getParameter("number"));
-		}
-		/**
-		 * Метод для проверки значения, которое было выбрано на форме
-		 */
-		public void checker() 
-		{
-			
-			if (ls.equals("pause")){
-				a=1;
-			}
-			
-			if (ls.equals("right")){
-				a=2;
-			}
-
-			if (ls.equals("left")){
-				a=3;
-			}
-		}
-	}
-	
+ 
 }
