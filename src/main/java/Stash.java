@@ -247,7 +247,7 @@ public class Stash {
 		 if(pdf_s.equals("yes"))
 		 {
 			 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d, finalcost);
-			 create.pdf();
+			 create.create();
 			
 		 }
 		 

@@ -33,7 +33,7 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;*/
 /**
  * Класс CreatePDF, формирующий pdf документ.
  */
-public class CreatePDF 
+public class CreatePDF extends CreateDoc
 {
 	/**
 	 * Массивы для хранения стоимости товаров,
@@ -82,10 +82,16 @@ public class CreatePDF
    /**
     * Метод для генерации pdf документа
     */
-     public void pdf() throws IOException {
+     public void create() {
     	 Document document = new Document(); 
      	
-    	 String filepath = new File("").getCanonicalPath();
+    	 String filepath = " ";
+		try {
+			filepath = new File("").getCanonicalPath();
+		} catch (IOException e3) {
+	
+			e3.printStackTrace();
+		}
  		String[] parsfilepath = filepath.split("/");
  		
  		int lengthpath = parsfilepath.length;
