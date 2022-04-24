@@ -24,9 +24,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+/**
+ * Класс Registration.
+ */
 @WebServlet(name="Registration", urlPatterns="/JavaRegistration")
 public class Registration extends HttpServlet {
-	
+	/**
+	 * Метод для взаимодействия с формой регистрации
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		AddUser adduser = AddUser.fromRequestParameters(request);

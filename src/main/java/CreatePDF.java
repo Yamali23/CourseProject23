@@ -30,8 +30,16 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;*/
 
+/**
+ * Класс CreatePDF, формирующий pdf документ.
+ */
 public class CreatePDF 
 {
+	/**
+	 * Массивы для хранения стоимости товаров,
+	 * их цены, количества и названия
+	*/
+	
 	double[] price = new double[22]; //стоимость
 	String[] coeff = new String[23]; //цена
     double[] quant = new double[22]; //количество
@@ -41,6 +49,19 @@ public class CreatePDF
     double a,b;
     int x,y,z,d;
     double finalprice;
+    
+    /**
+	 * Конструктор - создание документа.
+	 *
+	 *  @param  price массив стоимости материалов
+	 *  @param coeff массив цен материалов
+	 * @param a высота оконной конструкции
+	 * @param b ширина оконной конструкции
+	 * @param z количество створок
+	 * @param y количество откидных створок
+	 * @param d кратность стеклопакета
+	 * @param finalprice итоговая стоимость производства
+	 */
      public CreatePDF(double[] price, String[] coeff,double a,  double b, int z, int y, int d, double finalprice)
     {
     	this.price = price;
@@ -57,6 +78,10 @@ public class CreatePDF
    public CreatePDF() {
 	   
    }
+   
+   /**
+    * Метод для генерации pdf документа
+    */
      public void pdf() throws IOException {
     	 Document document = new Document(); 
      	
@@ -217,6 +242,10 @@ public class CreatePDF
  	    document.close(); 
      }
      
+     /**
+      * Метод для заполнения массива
+      * наименования материалов
+      */
      public void nameMaterials() {
     	materials[1] = "Рамный профиль"; 
     	materials[2] = "Импост";
@@ -238,11 +267,19 @@ public class CreatePDF
     	materials[18] = "Подкладка под стеклопакет";
     	
      }
-     
+     /**
+      * Метод, возвращающий массив стоимости материалов
+      * @return price
+      */
      public double[] getPrice() {
     	 return price;
      }
-     
+     /**
+      * Метод, вычисляющий количесво израсходованного маретиала
+      * @param price - массив стоимости материалов
+      * @param coeff - массив цен материалов
+      * @return quant 
+      */
      public double[] quantity(double[] price, String[] coeff) 
      {
     	for (int i = 1; i <= 18; i ++) {

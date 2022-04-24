@@ -6,15 +6,26 @@ import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 
-//import Registration.Adduser;
 
+/**
+ * Класс AddUser, реализующий добавление 
+ * в файл новых пользователей
+ * при регистрации.
+ */
 public class AddUser {
 
-	private final String login;
+	/** 
+	 * Поля для хранения введенных логина и пароля
+	 */
+	 private final String login;
 	 private final String password;
-	 static String s;
-	 static boolean t;
-	
+
+	 /**
+		 * Конструктор - создание объекта для добавления пользователя.
+		 *
+		 * @param log логин пользователя
+		 * @param pass пароль пользователя
+		 */
 	AddUser  (String log, String pass) 
 	{
 		this.login = log;
@@ -28,6 +39,10 @@ public class AddUser {
 		}
 	}
 
+	/**
+	 * Метод, считывающий введенные данные с формы
+	 *
+	 */
 	public static AddUser fromRequestParameters(HttpServletRequest request) 
 	{
 		return new AddUser(
@@ -35,6 +50,10 @@ public class AddUser {
 		request.getParameter("password"));
 	}
 	
+	/**
+	 * Метод, записывающий данные о пользователе в файл
+	 *
+	 */
 	final void writeToFile(String login, String password) throws IOException{
        
 		String [] m = new String[51];

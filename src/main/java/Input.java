@@ -6,8 +6,18 @@ import javax.servlet.http.HttpServletRequest;
 
 
 
+/**
+ * Класс Input.
+ */
 public class Input {
 
+	/**
+	 * Поля для хранения массива пользователей,
+	 * строки и информацией,
+	 * имени авторизованного пользователя
+	 * типа пользователя,
+	 * логина и пароля
+	 */
 	static String[] user = new String[51];
 	static String s;
 	static String yourName;
@@ -15,25 +25,40 @@ public class Input {
 	private  String login;
 	 private final String password;
 	
+	 /**
+	  * Конструктор
+	  * @param login - логин 
+	  * @param password - пароль 
+	  */
 	Input  (String login, String password) 
 	{
 		this.login = login;
 		this.password = password;	
 	
 	}
-	
+	/**
+	 * Метод для считывания данных, введенных на форме входа
+
+	 */
 	public static Input fromRequestParameters(HttpServletRequest request) {
 		return new Input(
 		request.getParameter("login"),
 		request.getParameter("password"));
 		}
 	
+	/**
+	 * Метод для вывода необходимой информации на форму
+	 */
 	public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 		
 		request.setAttribute("name", yourName);
 		request.setAttribute("infa", s);
 	}
-	
+	/**
+	 * Метод для чтения из файла зарегистрированных пользователец
+	 * @return user
+	 * 
+	 */
 	public String[] readFromFile() throws IOException
 	{
 		
@@ -59,12 +84,17 @@ public class Input {
 	    
 		return user;
 	}
-	
+	/**
+	 * Метод, возвращающий тип авторизирующегося пользователя
+	 * @return
+	 */
 	public int getType()
 	{
 		return type;
 	}
-	
+	/**
+	 * Метод для авторизации пользователя
+	 */
 	public void checkLoginAndPassword() 
 	{
 		String myUser;

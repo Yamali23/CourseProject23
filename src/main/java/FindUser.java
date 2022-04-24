@@ -12,11 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Класс FindUser.
+ */
 @WebServlet(name="FindUser", urlPatterns="/JavaFindUser")
 public class FindUser extends HttpServlet {
 	
+	/**
+	 * Перемнная для хранения метки - был найден пользователь или нет
+	 */
 	private static int exname = 0;
 
+	/**
+	 * Метод для создания экземпляра класса Find,
+	 * получения данных с формы поиска пользователя
+	 * и перехода на другие формы при удачном или неудачном поиске
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		exname = 0;
@@ -33,34 +44,56 @@ public class FindUser extends HttpServlet {
 		}
 		
 	}
-	
+	/**
+	 * Класс Find для поиска пользователя в списке зарегистрированных
+	 */
 	private static class Find
 	{
+		/**
+		 * Поля для хранения введенного логина,
+		 * сроки с сообщением,
+		 * массива логинов
+		 * и впомогательно массива для поиска введенного логина
+		 */
 		private  String name;
 		String sss = " ";
 		String[] logins = new String[12];
-		String[] user = new String[51];
+		//String[] user = new String[51];
     	String[] triple = new String[3];
 		
+    	/**
+    	 * Конструктор
+    	 * @param name - логин введенного пользователя
+    	 */
 		private Find (String name) 
 		{
 			this.name = " ";
 			this.name = name;
 		}
-		
+		/**
+		 * 
+		 * Метод для вывода данных на форму
+		 */
 		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) 
 		{
 			request.setAttribute("name", name);
 	
 			request.setAttribute("sss", sss);
 		}
-		
+		/**
+		 * 
+		 * Метод для считывания данных с формы ввода логина 
+		 * 
+		 */
 		public static Find fromRequestParameters(HttpServletRequest request) 
 		{
 			return new Find(
 			request.getParameter("userName"));
 		}
-		
+		/**
+		 * Метод для поиска введенного логина
+		 * среди записанных в файле
+		 */
         public void findUser() throws IOException
         {
         	
@@ -101,7 +134,11 @@ public class FindUser extends HttpServlet {
         	
         		    }
         }
-       
+       /**
+        * Метод для записи найденного логина в буфер обмена
+        * @param s - логин пользователя
+        * 
+        */
         public void rememberUser(String s) throws IOException 
         {
         	String filepath = new File("").getCanonicalPath();

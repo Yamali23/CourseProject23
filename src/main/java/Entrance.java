@@ -16,14 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+/**
+ * Класс Entrance для взаимодействия с jsp формой входа.
+ */
 @WebServlet(name="Entrance", urlPatterns="/JavaEntrance")
 public class Entrance extends HttpServlet {
 	
-	/*static String[] user = new String[51];
-	static String s;
-	static String yourName;*/
+	/**
+	 * переменная, хранаящая тип авторизирующегося пользователя
+	 */
 	static private int type = 0;
 	
+	/**
+	 * Метод для создания экземпляра класса Input,
+	 * получения данных с формы ввода логина и пароля при входе,
+	 * и входа в систему
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Input input = Input.fromRequestParameters(request);
@@ -51,85 +59,4 @@ public class Entrance extends HttpServlet {
 		
 		}
 	
-	/*private static class Input 
-	{
-		
-		 private  String login;
-		 private final String password;
-		
-		private Input  (String login, String password) 
-		{
-			this.login = login;
-			this.password = password;	
-			
-		}
-		
-		public static Input fromRequestParameters(HttpServletRequest request) {
-			return new Input(
-			request.getParameter("login"),
-			request.getParameter("password"));
-			}
-		
-		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
-			
-			request.setAttribute("name", yourName);
-			request.setAttribute("infa", s);
-		}
-		
-		public void readFromFile() throws IOException
-		{
-			
-			int i =0;
-			 for ( int j = 0; j < 50; j++)
-			    {
-			    	user[j] = "000";
-			    }
-			
-			ClassLoader classLoader = getClass().getClassLoader();
-		    InputStream myFile = classLoader.getResourceAsStream("users");
-		    Scanner scanner = new Scanner(myFile);
-		   
-		  
-		    while (scanner.hasNext())
-		    {
-               
-		       user[i] = scanner.nextLine();
-		       
-               i++;
-		    }
-			
-			
-		}
-		
-		public void checkLoginAndPassword() 
-		{
-			String myUser;
-			
-			type = 0;
-			
-			for (int i = 0; i <50; i++)
-			{
-				
-				if (user[i].equals(login + " " + password + " a"))
-				{
-					yourName = "Вы вошли как " + login;
-					type = 2;
-					
-				}
-				if (user[i].equals(login + " " + password + " u"))
-				{
-					yourName = "Вы вошли как " + login;
-					type = 1;
-				}
-				
-			}
-			
-			if(type == 0) 
-			{
-				s = "Неверный логин или пароль";
-			}
-		}
-		
-		
-	}*/
 }

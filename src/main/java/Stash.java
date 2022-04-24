@@ -4,8 +4,18 @@ import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Класс Stash для расчета итоговой стоимости .
+ */
+
 public class Stash {
 
+	/**
+	 * Поля для хранение значения цен матриалов,
+	 * размеров окна, количества створок, количества
+	 * откидных створок, тип стелопакета,
+	 * информации об ошибках
+	 */
 	String [] coeff = new String[23];
 	String a_s;
 	String b_s;
@@ -23,9 +33,20 @@ public class Stash {
 	int d;
 	int x;
 	
-	
+	/**
+	 * переменная для хранение итоговой стоимости производства
+	 */
 	double finalcost = 0;
 	
+	/**
+	 * Конструктор 
+	 * @param height - высота
+	 * @param width - ширина 
+	 * @param NumStvor - количество створок
+	 * @param NumFuncStvor - количество откидных створок
+	 * @param TypeStvor - тип стеклопакета
+	 * @param PDF - необходимость генерации PDF
+	 */
 	Stash  (String height, String width, String NumStvor, String NumFuncStvor, String TypeStvor, String PDF) 
 	{
 		this.a_s = height;
@@ -39,7 +60,9 @@ public class Stash {
 		//this.x = (Integer.parseInt(z)-Integer.parseInt(y));
 		//s_s = z_s;
 	}
-	
+	/**
+	 * Метод для передачи за=начений на форму вывода результатов
+	 */
 		public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 		
 		request.setAttribute("height", a);
@@ -54,21 +77,44 @@ public class Stash {
 		request.setAttribute("Error4", err4);
 		request.setAttribute("Error5", err5);
 	}
+		/**
+		 * Метод, возвращающий высоту окна
+		 * @return a_s
+		 */
 	public String getA() {
 		return a_s;
 	}
+	/**
+	 * Метод, возвращющий ширину окна
+	 * @return b_s
+	 */
 	public String getB() {
 		return b_s;
 	}
+	/**
+	 * Метод, возвращающий количество створок
+	 * @return z_s
+	 */
 	public String getZ() {
 		return z_s;
 	}
+	/**
+	 * Метод, возвращающий количество откидных створок
+	 * @return y_s
+	 */
 	public String getY() {
 		return y_s;
 	}
+	/**
+	 * Метод, возвращающий тип стелопакета 
+	 * @return d_s
+	 */
 	public String getD() {
 		return d_s;
 	}
+	/**
+	 * Метод, считывабщий введенные параметры окна с формы
+	 */
 	public static Stash fromRequestParameters(HttpServletRequest request) 
 	{
 		return new Stash(
@@ -83,6 +129,10 @@ public class Stash {
 	/*public Stash() {
 		reader();
 	}*/
+	/**
+	 * Метод, считывающий коэфиициенты
+	 * стоимости материалов и услуг с файла
+	 */
 	 public void reader() {
 	 ClassLoader classLoader = getClass().getClassLoader();
 	    InputStream myFile = classLoader.getResourceAsStream("coeffs");
@@ -95,7 +145,15 @@ public class Stash {
 	       f++;
 	    }
 }
-	 
+	/**
+	 * Метод, проверяющий введенные данный на корректность 
+	 * @param a_s - высота
+	 * @param b_s - ширина 
+	 * @param z_s - количество створок
+	 * @param y_s - количетво откидных створок
+	 * @param d_s - тип стелопакета
+	 * @return с - количество ошибок
+	 */
 	 public int converter(String a_s,String b_s,String z_s,String y_s,String d_s) throws IOException {
 		 int c = 0;
 		 try {
@@ -146,6 +204,16 @@ public class Stash {
 			
 		return c;	
 	 }
+	 /**
+	  * Метод, вычисляющий стоимость производства
+	  * @param a - высота
+	  * @param b - ширина 
+	  * @param z - количество створок
+	  * @param x - количество глухих створок
+	  * @param y - количество откидных створок
+	  * @param d- тип стеклопакета
+	  * @return finalcost
+	  */
 	 public double calculator(double a, double b, int z, int x, int y, int d) throws IOException{
 		 double[] price = new double[22];
 		 price[1] = 2*(a+b)*Double.parseDouble(coeff[1]);

@@ -12,9 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Классs MaterialCost .
+ */
 @WebServlet(name="MaterialsCost", urlPatterns="/MaterialsCost")
 public class MaterialsCost extends HttpServlet {
 	
+	/**
+	 * Метод для взаимодействия с формой ввода коэффициентов
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Costs costs = Costs.fromRequestParameters(request);
 		
@@ -25,18 +31,31 @@ public class MaterialsCost extends HttpServlet {
 		request.getRequestDispatcher("/Materials.jsp").forward(request, response);
 	}
 	
-	
+	/**
+	 * 
+	 * Класс Costs для изменения коэфиициентов
+	 *
+	 */
 	public static class Costs {
-		//String cost1_mat, cost2_mat, cost3_mat, cost4_mat, cost5_mat, cost6_mat, cost7_mat, cost8_mat, cost9_mat, cost10_mat, cost11_mat, cost12_mat, cost13_mat, cost14_mat, cost15_mat, cost16_mat, cost17_mat, cost18_mat, cost19_mat, cost20_mat, cost21_mat, cost22_mat;
+		/**
+		 * Поля для хранения массивов цен, считанных с формы и файла,
+		 * и строка для хранения сообщений
+		 */
 		String [] costArray = new String [23];
 		String [] costFileArray = new String [23];
 		String massage;
 		
+		/**
+		 * 
+		 * Метод для вывода сообщений на форму
+		 */
 	public void setAsRequestAttributesAndCalculate(HttpServletRequest request) {
 			
 		request.setAttribute("infa", massage);
 		}
-		
+	/**
+	 * Консруктор
+	 */
 	private Costs  (String cost1, String cost2, String cost3, String cost4, String cost5, String cost6, String cost7, String cost8, String cost9, String cost10, String cost11, String cost12, String cost13, String cost14, String cost15, String cost16, String cost17, String cost18, String cost19, String cost20, String cost21, String cost22) 
 	{
 		costArray[1] = cost1;
@@ -64,7 +83,9 @@ public class MaterialsCost extends HttpServlet {
 		
 		
 	}
-	
+	/**
+	 * Метод для получения введеных на форму параметров
+	 */
 	public static Costs fromRequestParameters(HttpServletRequest request) 
 	{
 		return new Costs(
@@ -94,7 +115,9 @@ public class MaterialsCost extends HttpServlet {
 	
 	
 
-	
+	/**
+	 * Метод для считывания с файла имеющихся коэффициентов
+	 */
 	public void readFromFile() {
 	ClassLoader classLoader = getClass().getClassLoader();
     InputStream myFile = classLoader.getResourceAsStream("coeffs");
@@ -109,7 +132,9 @@ public class MaterialsCost extends HttpServlet {
        i++;
     }
 	}
-	
+	/**
+	 * Метод для записи в файл новых коэффициентов
+	 */
 	public void writeToFile() throws IOException {
 
     	String filepath = new File("").getCanonicalPath();

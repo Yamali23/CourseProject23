@@ -7,7 +7,16 @@ import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Класс Roles для изменения роли пользователя.
+ */
 public class Roles {
+	/**
+	 * Поля для хранения массивов данных польлователей,
+	 * вспомогательного массива, счетчика, 
+	 * логина текущего пользователя, изменяемой роли,
+	 * строки с информацией
+	 */
 	String[] logins = new String[300];
 	String[] loginsFinal = new String[100];
 	String[] triple = new String[3];
@@ -16,6 +25,11 @@ public class Roles {
 	String role;
 	String info = " ";
 	
+	/**
+	 * Конструктор
+	 * @param name - логин пользователя
+	 * @param role - роль
+	 */
 	Roles (String name, String role) 
 	{
 		//this.name = name;
@@ -29,22 +43,40 @@ public class Roles {
 		}*/
 	}
 	
+	/**
+	 * Метод, возвращающий логин пользователя
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * Метод, возвращающий роль пользователя
+	 * @return role
+	 */
 	public String getRole() {
 		return role;
 	}
+	/**
+	 * Метод, возвращающий массив данных пользователей
+	 * @return logins
+	 */
 	public String[] getArray() {
 		return logins;
 	}
+	/**
+	 * Метод для вывода информации на форму
+	 * 
+	 */
 	public void setAsRequestAttributesAndCalculate(HttpServletRequest request) 
 	{
 		request.setAttribute("infa", info);
 
 		
 	}
-	
+	/**
+	 * Метод для получения данных с формы изменения роли
+	 */
 	public static Roles fromRequestParameters(HttpServletRequest request) 
 	{
 		return new Roles(
@@ -52,6 +84,11 @@ public class Roles {
 		request.getParameter("Role"));
 	}
 	
+	/**
+	 * Метод для поиска пользователя
+	 * @param role - роль 
+	 * @param name - логин
+	 */
     public void findUser(String role, String name) throws IOException
     {
     	
@@ -97,6 +134,9 @@ public class Roles {
     		    }
     
     }
+    /**
+     * Метод для записи в файл
+     */
     public void writer() throws IOException
     {
     		    String filepath = new File("").getCanonicalPath();
@@ -124,7 +164,9 @@ public class Roles {
     		    pw.close();
 	   
     }
-    
+    /**
+     * Метод для чтения из буфера обмена
+     */
     public void readFromBuffer() 
     {
     	ClassLoader classLoader = getClass().getClassLoader();
