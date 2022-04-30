@@ -32,6 +32,7 @@ public class Stash {
 	int y;
 	int d;
 	int x;
+	int pdf = 0;
 	
 	/**
 	 * переменная для хранение итоговой стоимости производства
@@ -251,22 +252,24 @@ public class Stash {
 		};
 		
 		finalcost = lambda.getResult();
-		 
-		 /*for (int i=1;i<22;i++) {
-			finalcost += price[i]; 
-		 }*/
+		
 		finalcost = Math.round(finalcost);
 		 
-		 
+			
 		 if(pdf_s.equals("yes"))
 		 {
+			 pdf = 1;
 			 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d, finalcost);
 			 create.create();
-			
+			 
 		 }
 		 
 		 return finalcost;
 	 }
 	 
+	 public int getPDF()
+	 {
+		 return pdf;
+	 }
 	
 }

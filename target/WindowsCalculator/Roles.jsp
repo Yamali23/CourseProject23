@@ -21,7 +21,7 @@
     <option value="oneRole">Пользователь</option>
     <option value="twoRole">Администратор</option>
     </select>
-  <p>${sss}</p>  
+  
     <p><input type="submit" name="role" value="Сохранить">
     </form>
     

@@ -47,7 +47,18 @@ public class Calculations extends HttpServlet {
 
 		
 		stash.setAsRequestAttributesAndCalculate(request);
+		
+		int p = stash.getPDF();
+		if (p== 0)
+		{
 		request.getRequestDispatcher("/ResultCost.jsp").forward(request, response);
+		}
+		if(p==1)
+		{
+			request.getRequestDispatcher("/OpenPDF.jsp").forward(request, response);
+		}
+		
+	
 	}
 	
 }
