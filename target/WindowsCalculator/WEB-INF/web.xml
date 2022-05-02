@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
   <display-name>Калькулятор</display-name>
-  <servlet>
-  	<description>
-  	</description>
-  	<display-name>MaterialsCost</display-name>
-  	<servlet-name>MaterialsCost</servlet-name>
-  	<servlet-class>MaterialsCost</servlet-class>
-  </servlet>
-  <servlet>
-  	<description>
-  	</description>
-  	<display-name>For3dModel</display-name>
-  	<servlet-name>For3dModel</servlet-name>
-  	<servlet-class>For3dModel</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>MaterialsCost</servlet-name>
-  	<url-pattern>/MaterialsCost</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>For3dModel</servlet-name>
-  	<url-pattern>/For3dModel</url-pattern>
-  </servlet-mapping>
- 
   <welcome-file-list>
     <welcome-file>InputForm.jsp</welcome-file>
   </welcome-file-list>
