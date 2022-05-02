@@ -49,15 +49,15 @@
 
 <p> ${infa} </p>
 
-<form action="${pageContext.request.contextPath}/Materials.jsp" method="post">    
+<form action="${pageContext.request.contextPath}/Materials.jsp">    
     <p><input type="submit" name="coef" value="Коэффициенты">
 </form>
 
-<form action="${pageContext.request.contextPath}/FindUser.jsp" method="post">    
+<form action="${pageContext.request.contextPath}/FindUser.jsp">    
     <input type="submit" name="roles" value="Роли">
 </form>    
 
-<form action="${pageContext.request.contextPath}/InputForm.jsp" method="post">    
+<form action="${pageContext.request.contextPath}/InputForm.jsp">    
     <p><input type="submit" name="exit" value="Выход">
 </form>  
 

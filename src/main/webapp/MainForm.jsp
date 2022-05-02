@@ -49,11 +49,11 @@
 
 <p> ${infa} </p>
 
-<form action="${pageContext.request.contextPath}/Pause.jsp" method="post">
+<form action="${pageContext.request.contextPath}/Pause.jsp">
 <p><input type="submit" name="3d" value="Трёхмерная модель окна">
 </form>
 
-<form action="${pageContext.request.contextPath}/InputForm.jsp" method="post">    
+<form action="${pageContext.request.contextPath}/InputForm.jsp">    
     <p><input type="submit" name="exit" value="Выход">
 </form>  
 

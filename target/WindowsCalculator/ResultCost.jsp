@@ -22,7 +22,7 @@
 <p>${Error5}</p> 
 
 
-<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
+<form action="${pageContext.request.contextPath}/MainFormA.jsp">
     <p> <input type="submit" name="sign" value="Назад"> </p>
  </form>  
 

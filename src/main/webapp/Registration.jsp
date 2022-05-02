@@ -18,7 +18,7 @@
 
 <p> ${infa} </p>
 
-<form action="${pageContext.request.contextPath}/InputForm.jsp" method="post">
+<form action="${pageContext.request.contextPath}/InputForm.jsp"s>
     <input type="submit" name="sign" value="Назад">
  </form>  
 

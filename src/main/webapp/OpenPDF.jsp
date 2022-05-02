@@ -19,7 +19,7 @@
 
 <a href="/WindowsCalculator/Check.pdf"> Открыть PDF-файл</a>
 
-<form action="${pageContext.request.contextPath}/MainFormA.jsp" method="post">
+<form action="${pageContext.request.contextPath}/MainFormA.jsp">
     <p> <input type="submit" name="sign" value="Назад"> </p>
  </form>  
 

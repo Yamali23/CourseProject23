@@ -11,7 +11,7 @@
 <h2>Внимание! </h2> 
 <p>${infa}</p> 
 
-<form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
+<form action="${pageContext.request.contextPath}/MainForm.jsp">
     <input type="submit" name="sign" value="Назад">
  </form>  
  

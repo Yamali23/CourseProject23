@@ -19,7 +19,7 @@
     <p><input type="submit" name="apply" value="Применить">
     </form>
 
-<form action="${pageContext.request.contextPath}/MainForm.jsp" method="post">
+<form action="${pageContext.request.contextPath}/MainForm.jsp">
     <p><input type="submit" name="sign" value="Назад">
 </form>  
     

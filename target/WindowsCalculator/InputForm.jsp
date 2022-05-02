@@ -10,16 +10,14 @@
 
      <h2>Авторизация </h2> 
      
-
-
 <form action="${pageContext.request.contextPath}/JavaEntrance" method="post">
-<p><strong>Логин:</strong> <input type="text" name="login" id="login" value="admin">
-<p><strong>Пароль:</strong> <input type="text" name="password" id="password" value="qwerty">
+<p><strong>Логин: </strong> <input type="text" name="login" id="login" value="admin">
+<p><strong>Пароль: </strong> <input type="text" name="password" id="password" value="qwerty">
 <p><input type="submit" name="ent" value="Войти">
 </form>
 
 
-<form action="${pageContext.request.contextPath}/Registration.jsp" method="post">
+<form action="${pageContext.request.contextPath}/Registration.jsp">
 <p><input type="submit" name="reg" value="Зарегистрироваться"> 
 </form>
 
