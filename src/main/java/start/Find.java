@@ -1,7 +1,10 @@
 package start;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -72,16 +75,27 @@ import javax.servlet.http.HttpServletRequest;
         	
         	int counter;
         	
-        	ClassLoader classLoader = getClass().getClassLoader();
-            InputStream myFile = classLoader.getResourceAsStream("users");
-            Scanner scanner = new Scanner(myFile);
+        	 String filepath = new File("").getCanonicalPath();
+ 			String[] parsfilepath = filepath.split("/");
+ 			int lengthpath = parsfilepath.length;
+ 			String abspath = "";
+ 			for (int ii = 0; ii < (lengthpath - 1); ii++) {
+ 				abspath = abspath + parsfilepath[ii] + "/";
+ 			}
+ 			filepath = abspath + "webapps/WindowsCalculator/users";
+ 			
+ 			File file = new File(filepath);
+ 			FileInputStream fis = new FileInputStream(file);
+ 			InputStreamReader isr = new InputStreamReader(fis);
+ 			BufferedReader br = new BufferedReader(isr);
             
             String line;
         		  
         		  int i = 0;
-        		    while (scanner.hasNext())
-        		    {
-                       line = scanner.nextLine();
+        		 
+      			while ((line = br.readLine()) != null) 
+      			{
+                       
         		       triple = line.split(" ");
         		       
                        logins[3*i] = triple[0];
@@ -89,7 +103,7 @@ import javax.servlet.http.HttpServletRequest;
                        logins[3*i+2] = triple[2];
                       i++;
                      
-        		    }
+        		  }
         		    
         		    counter = i;
         		   
@@ -123,7 +137,7 @@ import javax.servlet.http.HttpServletRequest;
 			{
 				abspath=abspath+parsfilepath[i]+"/";
 			}
-			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+			filepath=abspath+"webapps/WindowsCalculator/";
 			
 			File file = new File(filepath + "buffer");
 			PrintWriter pw = new PrintWriter(file);

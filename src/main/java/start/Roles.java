@@ -1,8 +1,11 @@
 package start;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -93,16 +96,28 @@ public class Roles {
     public void findUser(String role, String name) throws IOException
     {
     	
-    	
-    	ClassLoader classLoader = getClass().getClassLoader();
-    		    InputStream myFile = classLoader.getResourceAsStream("users");
-    		    Scanner scanner = new Scanner(myFile);
-    		   
-    		  String line;
-    		  int i = 0;
-    		    while (scanner.hasNext())
+    	String filepath = new File("").getCanonicalPath();
+		String[] parsfilepath = filepath.split("/");
+		
+		int lengthpath = parsfilepath.length;
+		String abspath=""; 
+		for(int i=0;i<(lengthpath-1);i++) 
+		{
+			abspath=abspath+parsfilepath[i]+"/";
+		}
+		filepath=abspath+"webapps/WindowsCalculator/users";
+		
+		File file = new File(filepath);
+		FileInputStream fis = new FileInputStream(file);
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String[] lines = new String[50]; 	
+		int i = 0;
+		String line = "";
+		while ((line = br.readLine()) != null) 
     		    {
-                   line = scanner.nextLine();
+                   
     		       triple = line.split(" ");
     		       
                    logins[3*i] = triple[0];
@@ -115,7 +130,7 @@ public class Roles {
     		    counter = i;
     		    
     		    
-    		    info = name + " " + role;
+    		    //info = name + " " + role;
     		    for (i = 0; i < counter; i++)
     		    {
     		    	
@@ -133,7 +148,7 @@ public class Roles {
     		    		}
     		    	}
     		    }
-    
+               
     }
     /**
      * Метод для записи в файл
@@ -150,7 +165,7 @@ public class Roles {
     			{
     				abspath=abspath+parsfilepath[i]+"/";
     			}
-    			filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+    			filepath=abspath+"webapps/WindowsCalculator/";
     		    
     		    File file = new File(filepath + "users");
     			PrintWriter pw = new PrintWriter(file);
@@ -167,14 +182,30 @@ public class Roles {
     }
     /**
      * Метод для чтения из буфера обмена
+     * @throws IOException 
      */
-    public void readFromBuffer() 
+    public void readFromBuffer() throws IOException 
     {
-    	ClassLoader classLoader = getClass().getClassLoader();
-	    InputStream myFile = classLoader.getResourceAsStream("buffer");
-	    Scanner scanner = new Scanner(myFile);
+    	String filepath = new File("").getCanonicalPath();
+		String[] parsfilepath = filepath.split("/");
+		
+		int lengthpath = parsfilepath.length;
+		String abspath=""; 
+		for(int i=0;i<(lengthpath-1);i++) 
+		{
+			abspath=abspath+parsfilepath[i]+"/";
+		}
+		filepath=abspath+"webapps/WindowsCalculator/buffer";
+		
+		File file = new File(filepath);
+		FileInputStream fis = new FileInputStream(file);
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String line = "";
 	    
-	    name = scanner.nextLine();
+	    name = br.readLine();
+	    
 	    
     }
 }

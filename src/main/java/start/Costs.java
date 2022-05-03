@@ -122,7 +122,7 @@ import javax.servlet.http.HttpServletRequest;
 		{
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+		filepath=abspath+"webapps/WindowsCalculator/";
 		
 		File file = new File(filepath + "coeffs");
 			PrintWriter pw = new PrintWriter(file);

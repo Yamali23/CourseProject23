@@ -1,6 +1,10 @@
 package start;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +62,12 @@ public class Stash {
 		this.d_s = TypeStvor;
 		this.pdf_s = PDF;
 		
-		reader();
+		try {
+			reader();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//this.x = (Integer.parseInt(z)-Integer.parseInt(y));
 		//s_s = z_s;
 	}
@@ -134,18 +143,41 @@ public class Stash {
 	/**
 	 * Метод, считывающий коэфиициенты
 	 * стоимости материалов и услуг с файла
+	 * @throws IOException 
 	 */
-	 public void reader() {
-	 ClassLoader classLoader = getClass().getClassLoader();
-	    InputStream myFile = classLoader.getResourceAsStream("coeffs");
-	    Scanner scanner = new Scanner(myFile);
+	 public void reader() throws IOException {
+	 
+		 
+		    String filepath = new File("").getCanonicalPath();
+			String[] parsfilepath = filepath.split("/");
+			int lengthpath = parsfilepath.length;
+			String abspath = "";
+			for (int ii = 0; ii < (lengthpath - 1); ii++) {
+				abspath = abspath + parsfilepath[ii] + "/";
+			}
+			filepath = abspath + "webapps/WindowsCalculator/coeffs";
+			
+			File file = new File(filepath);
+			FileInputStream fis = new FileInputStream(file);
+			InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(isr);
+			
+			
+			String line = "";
 	   
 		int f = 1;		  
-	    while (scanner.hasNext())
-	    {       
-	       coeff[f] = scanner.nextLine();
-	       f++;
-	    }
+		try {
+			while ((line = br.readLine()) != null) 
+			{
+				  
+				coeff[f] = line;
+			    f++;
+			        
+			}
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 }
 	/**
 	 * Метод, проверяющий введенные данный на корректность 

@@ -1,7 +1,10 @@
 package start;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -62,7 +65,7 @@ public class AddUser {
 		String user = login + " " + password + " u";
 		
    	
-   	String filepath = new File("").getCanonicalPath();
+   	    String filepath = new File("").getCanonicalPath();
 		String[] parsfilepath = filepath.split("/");
 		
 		int lengthpath = parsfilepath.length;
@@ -71,10 +74,37 @@ public class AddUser {
 		{
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/";
+		filepath=abspath+"webapps/WindowsCalculator/users";
 		
+		File file = new File(filepath);
+		FileInputStream fis = new FileInputStream(file);
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String[] lines = new String[50]; 	
+		int k = 0;
+		String line = "";
+		while ((line = br.readLine()) != null) 
+		{
+			  
+			lines[k] = line;
+		    k++;
+		        
+		}
+		
+		lines[k] = user;
+	       
+	        
+		 PrintWriter pw = new PrintWriter(file);
+			
+	       for (int d = 0; d <=k ; d++)
+	       {
+	       	pw.println(lines[d]);
+	       }
 
-	    ClassLoader classLoader = getClass().getClassLoader();
+	       pw.close();
+
+	    /*ClassLoader classLoader = getClass().getClassLoader();
 	    InputStream myFile = classLoader.getResourceAsStream("users");
 	    Scanner scanner = new Scanner(myFile);
 			   
@@ -95,7 +125,7 @@ public class AddUser {
        	pw.println(lines[d]);
        }
 
-       pw.close();
+       pw.close();*/
    
 	}
 	

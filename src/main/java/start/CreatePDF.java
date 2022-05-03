@@ -96,8 +96,8 @@ public class CreatePDF extends CreateDoc
  		}
  		//filepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/Check.pdf";
  		filepath=abspath+"webapps/WindowsCalculator/Check.pdf";
- 		String imagepath=abspath+"webapps/WindowsCalculator/WEB-INF/classes/logo.jpg";
- 		String fontpath =abspath+"webapps/WindowsCalculator/WEB-INF/classes/times.ttf";
+ 		String imagepath=abspath+"webapps/WindowsCalculator/logo.jpg";
+ 		String fontpath =abspath+"webapps/WindowsCalculator/times.ttf";
      	
  		try {	
  			PdfWriter.getInstance(document, new FileOutputStream(filepath));

@@ -1,6 +1,10 @@
 package start;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
@@ -68,21 +72,32 @@ public class Input {
 		    {
 		    	user[j] = "000";
 		    }
+//////////////////////////////////////////////////////////////////////////////		
+		    String filepath = new File("").getCanonicalPath();
+			String[] parsfilepath = filepath.split("/");
+			int lengthpath = parsfilepath.length;
+			String abspath = "";
+			for (int ii = 0; ii < (lengthpath - 1); ii++) {
+				abspath = abspath + parsfilepath[ii] + "/";
+			}
+			filepath = abspath + "webapps/WindowsCalculator/users";
+			
+			File file = new File(filepath);
+			FileInputStream fis = new FileInputStream(file);
+			InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(isr);
+			
+			i=0;
+			String line = "";
+			while ((line = br.readLine()) != null) 
+			{
+				  
+				user[i] = line;
+			    i++;
+			        
+			}
+			
 		
-		ClassLoader classLoader = getClass().getClassLoader();
-	    InputStream myFile = classLoader.getResourceAsStream("users");
-	    Scanner scanner = new Scanner(myFile);
-	   
-	  
-	    while (scanner.hasNext())
-	    {
-           
-	       user[i] = scanner.nextLine();
-	       
-           i++;
-	    }
-		
-	    
 		return user;
 	}
 	/**
@@ -119,6 +134,7 @@ public class Input {
 			
 		}
 		
+		s = " ";
 		if(type == 0) 
 		{
 			s = "Неверный логин или пароль";
