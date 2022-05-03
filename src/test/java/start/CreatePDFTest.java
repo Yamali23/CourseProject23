@@ -19,7 +19,7 @@ public class CreatePDFTest {
 	//double[] price, String[] coeff,double a,  double b, int z, int y, int d, double finalprice
 		
 		
-		CreatePDF create = new CreatePDF();
+		/*CreatePDF create = new CreatePDF();
 		
 		double[] price = new double[19];
 		String[] coeff = new String[19];
@@ -52,7 +52,7 @@ public class CreatePDFTest {
 	    {
 			assertTrue(quant[i] > 0);
 			
-	    }
+	    }*/
 		
 	}
 
