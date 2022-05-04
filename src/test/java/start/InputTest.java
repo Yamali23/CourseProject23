@@ -1,35 +1,36 @@
 package start;
-import static org.junit.Assert.*;
 
-import java.io.IOException;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class InputTest {
+public class InputTest  {
 
 	@Test
 	public void test() {
 		
+		Input in = new Input("log", "pas");
+		int t=0;
 		String[] s = new String[50];
 		
-		/*Input in = new Input("login", "password");
-		try {
-			s = in.readFromFile();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
+		s[0] = "000";
+		s[1] = "admin qwerty a";
+		s[2] = "user cvbn u";
+		for(int i = 3; i<50; i++)
+		{
+			s[i] = "000";
 		}
 		
-		int k = 0;
-		for (int i =0; i<50; i++)
-		{
-			if (s[i].length() > 0)
-			{
-				k++;
-			}
-		}*/
-		int k = 10;
-		assertTrue(k>0);
+		t = in.checkLoginAndPassword("admin", "qwerty",s);
+		assertTrue(t==2);
+		
+		t=0;
+		t = in.checkLoginAndPassword("user", "cvbn",s);
+		assertTrue(t==1);
+		
+		t=0;
+		t = in.checkLoginAndPassword("vff", "q55y",s);
+		assertTrue(t==0);
 	}
 
 }

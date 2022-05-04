@@ -59,6 +59,9 @@ public class Input {
 		request.setAttribute("name", yourName);
 		request.setAttribute("infa", s);
 	}
+	public String[] getArray() {
+		return user;
+	}
 	/**
 	 * Метод для чтения из файла зарегистрированных пользователец
 	 * @return user
@@ -104,6 +107,15 @@ public class Input {
 	 * Метод, возвращающий тип авторизирующегося пользователя
 	 * @return
 	 */
+	
+	public String getlogin()
+	{
+		return login;
+	}
+	public String getpassword()
+	{
+		return password;
+	}
 	public int getType()
 	{
 		return type;
@@ -111,7 +123,7 @@ public class Input {
 	/**
 	 * Метод для авторизации пользователя
 	 */
-	public void checkLoginAndPassword() 
+	public int checkLoginAndPassword(String login, String password, String[] user) 
 	{
 		String myUser;
 		
@@ -139,6 +151,8 @@ public class Input {
 		{
 			s = "Неверный логин или пароль";
 		}
+		
+		return type;
 	}
 	
 	

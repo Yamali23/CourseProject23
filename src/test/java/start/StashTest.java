@@ -25,21 +25,7 @@ public class StashTest extends Stash {
 		
 	    cost = st.calculator(2.1,2.1,1,1,1,1, coef);
 	    assertTrue(cost > 0);
-	    
-	    /*String s;
-	    s = st.getA();
-	    assertTrue(s.length() > 0);
-	    s = st.getB();
-	    assertTrue(s.length() > 0);
-	    s = st.getZ();
-	    assertTrue(s.length() > 0);
-	    s = st.getY();
-	    assertTrue(s.length() > 0);
-	    s = st.getD();
-	    assertTrue(s.length() > 0);*/
-	    
-	    
-	    
+	   
 	}
 
 

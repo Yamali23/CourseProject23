@@ -38,7 +38,10 @@ public class Entrance extends HttpServlet {
 		Input input = Input.fromRequestParameters(request);
 		
 		input.readFromFile();
-		input.checkLoginAndPassword();
+		String l = input.getlogin();
+		String p = input.getpassword();
+		String[] a = input.getArray();
+		input.checkLoginAndPassword(l,p,a);
 		
 		input.setAsRequestAttributesAndCalculate(request);
 		
