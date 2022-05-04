@@ -104,18 +104,25 @@ public class Input {
 		return user;
 	}
 	/**
-	 * Метод, возвращающий тип авторизирующегося пользователя
-	 * @return
+	 * Метод, возвращающий логин пользователя
+	 * @return login
 	 */
-	
 	public String getlogin()
 	{
 		return login;
 	}
+	/**
+	 * Метод, возвращающий пароль пользователя
+	 * @return password
+	 */
 	public String getpassword()
 	{
 		return password;
 	}
+	/**
+	 * Метод, возвращающий тип авторизирующегося пользователя
+	 * @return type
+	 */
 	public int getType()
 	{
 		return type;

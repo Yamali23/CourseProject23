@@ -104,29 +104,6 @@ public class AddUser {
 
 	       pw.close();
 
-	    /*ClassLoader classLoader = getClass().getClassLoader();
-	    InputStream myFile = classLoader.getResourceAsStream("users");
-	    Scanner scanner = new Scanner(myFile);
-			   
-		String[] lines = new String[50]; 	
-		int k = 0;
-		 while (scanner.hasNext())
-			{       
-			   lines[k] = scanner.nextLine(); 
-			   k++;
-			}
-       lines[k] = user;
-       
-       File file = new File(filepath + "users");
-		PrintWriter pw = new PrintWriter(file);
-		
-       for (int d = 0; d <=k ; d++)
-       {
-       	pw.println(lines[d]);
-       }
-
-       pw.close();*/
-   
 	}
 	
 }
