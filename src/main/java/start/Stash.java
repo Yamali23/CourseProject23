@@ -71,6 +71,8 @@ public class Stash {
 		//this.x = (Integer.parseInt(z)-Integer.parseInt(y));
 		//s_s = z_s;
 	}
+	
+    Stash() {}
 	/**
 	 * Метод для передачи за=начений на форму вывода результатов
 	 */
