@@ -124,7 +124,7 @@ import javax.servlet.http.HttpServletRequest;
 		}
 		filepath=abspath+"webapps/WindowsCalculator/";
 		
-		File file = new File(filepath + "coeffs");
+		File file = new File(filepath + "coeffs.txt");
 			PrintWriter pw = new PrintWriter(file);
 		
         	int s = 0;

@@ -74,7 +74,7 @@ public class AddUser {
 		{
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/WindowsCalculator/users";
+		filepath=abspath+"webapps/WindowsCalculator/users.txt";
 		
 		File file = new File(filepath);
 		FileInputStream fis = new FileInputStream(file);

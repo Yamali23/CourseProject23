@@ -155,7 +155,7 @@ public class Stash {
 			for (int ii = 0; ii < (lengthpath - 1); ii++) {
 				abspath = abspath + parsfilepath[ii] + "/";
 			}
-			filepath = abspath + "webapps/WindowsCalculator/coeffs";
+			filepath = abspath + "webapps/WindowsCalculator/coeffs.txt";
 			
 			File file = new File(filepath);
 			FileInputStream fis = new FileInputStream(file);

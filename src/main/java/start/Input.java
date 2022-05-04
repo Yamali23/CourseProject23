@@ -80,8 +80,8 @@ public class Input {
 			for (int ii = 0; ii < (lengthpath - 1); ii++) {
 				abspath = abspath + parsfilepath[ii] + "/";
 			}
-			filepath = abspath + "webapps/WindowsCalculator/users";
-			
+			filepath = abspath + "webapps/WindowsCalculator/users.txt";
+			s = filepath;
 			File file = new File(filepath);
 			FileInputStream fis = new FileInputStream(file);
 			InputStreamReader isr = new InputStreamReader(fis);

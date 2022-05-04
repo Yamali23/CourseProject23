@@ -139,7 +139,7 @@ import javax.servlet.http.HttpServletRequest;
 			}
 			filepath=abspath+"webapps/WindowsCalculator/";
 			
-			File file = new File(filepath + "buffer");
+			File file = new File(filepath + "buffer.txt");
 			PrintWriter pw = new PrintWriter(file);
 			
 	        pw.println(s);
