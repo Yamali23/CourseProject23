@@ -22,12 +22,12 @@ public class Stash {
 	 * информации об ошибках
 	 */
 	String [] coeff = new String[23];
-	String a_s;
-	String b_s;
-	String z_s;
-	String y_s;
-	String d_s;
-	String pdf_s;
+	String a_s = "";
+	String b_s= "";
+	String z_s= "";
+	String y_s= "";
+	String d_s= "";
+	String pdf_s= "no";
 	String s_s;
 	String err1, err2, err3, err4, err5;
 	double[] s;
@@ -38,7 +38,7 @@ public class Stash {
 	int d;
 	int x;
 	int pdf = 0;
-	
+	double[] price = new double[22];
 	/**
 	 * переменная для хранение итоговой стоимости производства
 	 */
@@ -235,7 +235,14 @@ public class Stash {
 			}
 			
 			if (c == 0) {
-			calculator(a,b,z,x,y,d);
+			calculator(a,b,z,x,y,d, coeff);
+			if(pdf_s.equals("yes"))
+			 {
+				 pdf = 1;
+				 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d, finalcost);
+				 create.create();
+				 
+			 }
 			}
 			
 		return c;	
@@ -250,8 +257,8 @@ public class Stash {
 	  * @param d- тип стеклопакета
 	  * @return finalcost
 	  */
-	 public double calculator(double a, double b, int z, int x, int y, int d) throws IOException{
-		 double[] price = new double[22];
+	 public double calculator(double a, double b, int z, int x, int y, int d, String[] coeff) throws IOException{
+		 
 		 price[1] = 2*(a+b)*Double.parseDouble(coeff[1]);
 		 price[2] = (z-1)*(a-0.1)*Double.parseDouble(coeff[2]);
 		 price[3] = 2*y*(b/z+a-0.1)*Double.parseDouble(coeff[3]);
@@ -290,14 +297,7 @@ public class Stash {
 		
 		finalcost = Math.round(finalcost);
 		 
-			
-		 if(pdf_s.equals("yes"))
-		 {
-			 pdf = 1;
-			 CreatePDF create = new CreatePDF(price, coeff, a, b, z, y, d, finalcost);
-			 create.create();
-			 
-		 }
+		
 		 
 		 return finalcost;
 	 }
