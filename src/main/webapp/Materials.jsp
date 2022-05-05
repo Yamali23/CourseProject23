@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Коэффициенты</title>
 </head>
+<link rel="stylesheet" href="One.css">
 <body>
 
-<h2>Изменение стоимости материалов и услуг </h2> 
+<h2 class="headline" >Изменение стоимости материалов и услуг </h2> 
 <form action="${pageContext.request.contextPath}/MaterialsCost" method="post">
      <p><label for="cost1">Стоимость рамного профиля (м):
      </label> <input type="text" name="cost1" id="cost1" value=""> ${cost}

@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Роли</title>
 </head>
+<link rel="stylesheet" href="One.css">
 <body>
 
-<h2>Изменение роли пользователя </h2> 
+<h2 class="headline" >Изменение роли пользователя </h2> 
 
 <form action="${pageContext.request.contextPath}/JavaFindUser" method="post">    
 <p><input type="text" name="userName" id="first" value="">

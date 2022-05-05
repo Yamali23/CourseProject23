@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Ввод параметров </title>
 </head>
+<link rel="stylesheet" href="One.css">
 <body>
 <p> ${name}</p> 
-<h2>Задайте параметры для расчета : </h2> 
+<h2 class="headline" >Задайте параметры для расчета : </h2> 
 <form action="${pageContext.request.contextPath}/JavaCalc" method="post">
 <p><strong>Высота:</strong> <input type="text" name="height" id="height" value=""> 
 <p><strong>Ширина:</strong> <input type="text" name="width" id="width" value=""> 

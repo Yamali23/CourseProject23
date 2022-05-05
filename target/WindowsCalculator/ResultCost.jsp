@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>Результаты</title>
 </head>
+<link rel="stylesheet" href="One.css">
 <body>
-<h1>Результаты </h1>
+<h1 class="headline" >Результаты </h1>
 <p><strong>Ваши введеные данные: </strong> <p> 
 <p>Высота:${height}</p> 
 <p>Ширина:${width}</p> 
