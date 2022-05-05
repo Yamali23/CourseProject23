@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body {
+		background: #f5f3dc;
+}
+
+.headline {
+text-transform: uppercase; 
+color: #8f5902;
+}
+
+input[type="submit"] {
+   background: #fffafa;
+   border: 1px solid rgb(198,198,198);
+   border-radius: 10%;
+   
+}
