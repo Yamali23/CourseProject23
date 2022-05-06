@@ -105,7 +105,7 @@ public class Roles {
 		{
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/WindowsCalculator/users.txt";
+		filepath=abspath+"webapps/CourseProject23/users.txt";
 		
 		File file = new File(filepath);
 		FileInputStream fis = new FileInputStream(file);
@@ -165,7 +165,7 @@ public class Roles {
     			{
     				abspath=abspath+parsfilepath[i]+"/";
     			}
-    			filepath=abspath+"webapps/WindowsCalculator/";
+    			filepath=abspath+"webapps/CourseProject23/";
     		    
     		    File file = new File(filepath + "users.txt");
     			PrintWriter pw = new PrintWriter(file);
@@ -195,7 +195,7 @@ public class Roles {
 		{
 			abspath=abspath+parsfilepath[i]+"/";
 		}
-		filepath=abspath+"webapps/WindowsCalculator/buffer.txt";
+		filepath=abspath+"webapps/CourseProject23/buffer.txt";
 		
 		File file = new File(filepath);
 		FileInputStream fis = new FileInputStream(file);

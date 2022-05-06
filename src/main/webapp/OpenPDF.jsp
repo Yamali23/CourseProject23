@@ -18,7 +18,7 @@
 <p><strong>Итоговая стоимость:</strong> ${FinalCost}</p> 
 
 
-<a href="/WindowsCalculator/Check.pdf"> Открыть PDF-файл</a>
+<a href="/CourseProject23/Check.pdf"> Открыть PDF-файл</a>
 
 <form action="${pageContext.request.contextPath}/MainFormA.jsp">
     <p> <input type="submit" name="sign" value="Назад"> </p>

@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>pyak</groupId>
-  <artifactId>WindowsCalculator</artifactId>
+  <artifactId>CourseProject23</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
@@ -62,7 +62,7 @@
   </dependencies>
 
   <build>
-    <finalName>WindowsCalculator</finalName>
+    <finalName>CourseProject23</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

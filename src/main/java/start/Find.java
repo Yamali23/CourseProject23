@@ -82,7 +82,7 @@ import javax.servlet.http.HttpServletRequest;
  			for (int ii = 0; ii < (lengthpath - 1); ii++) {
  				abspath = abspath + parsfilepath[ii] + "/";
  			}
- 			filepath = abspath + "webapps/WindowsCalculator/users";
+ 			filepath = abspath + "webapps/CourseProject23/users";
  			
  			File file = new File(filepath);
  			FileInputStream fis = new FileInputStream(file);
@@ -137,7 +137,7 @@ import javax.servlet.http.HttpServletRequest;
 			{
 				abspath=abspath+parsfilepath[i]+"/";
 			}
-			filepath=abspath+"webapps/WindowsCalculator/";
+			filepath=abspath+"webapps/CourseProject23/";
 			
 			File file = new File(filepath + "buffer.txt");
 			PrintWriter pw = new PrintWriter(file);
