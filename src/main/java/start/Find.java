@@ -82,7 +82,7 @@ import javax.servlet.http.HttpServletRequest;
  			for (int ii = 0; ii < (lengthpath - 1); ii++) {
  				abspath = abspath + parsfilepath[ii] + "/";
  			}
- 			filepath = abspath + "webapps/CourseProject23/users";
+ 			filepath = abspath + "webapps/CourseProject23/users.txt";
  			
  			File file = new File(filepath);
  			FileInputStream fis = new FileInputStream(file);
