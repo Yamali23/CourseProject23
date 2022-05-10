@@ -12,7 +12,7 @@
 <h2 class="headline" >Изменение стоимости материалов и услуг </h2> 
 <form action="${pageContext.request.contextPath}/MaterialsCost" method="post">
      <p><label for="cost1">Стоимость рамного профиля (м):
-     </label> <input type="text" name="cost1" id="cost1" value=""> ${cost}
+     </label> <input type="text" name="cost1" id="cost1" value=""> 
      <p><label for="cost2">Стоимость импоста (м): 
      </label> <input type="text" name="cost2" id="cost2" value=""> 
      <p><label for="cost3">Стоимость створчатого профиля (м): 

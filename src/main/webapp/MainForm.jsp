@@ -54,6 +54,10 @@
 <p><input type="submit" name="3d" value="Трёхмерная модель окна">
 </form>
 
+<form action="${pageContext.request.contextPath}/Info.jsp">
+<p><input type="submit" name="info" value="Информация">
+</form>
+
 <form action="${pageContext.request.contextPath}/InputForm.jsp">    
     <p><input type="submit" name="exit" value="Выход">
 </form>  

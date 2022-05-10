@@ -13,8 +13,8 @@
 <h1 class="headline"> Авторизация </h1> 
      
 <form action="${pageContext.request.contextPath}/JavaEntrance" method="post">
-<p><strong>Логин: </strong> <input type="text" name="login" id="login" value="admin">
-<p><strong>Пароль: </strong> <input type="text" name="password" id="password" value="qwerty">
+<p><strong>Логин: </strong> <input type="text" name="login" id="login" value="">
+<p><strong>Пароль: </strong> <input type="text" name="password" id="password" value="">
 <p><input type="submit" name="ent" value="Войти">
 </form>
 
