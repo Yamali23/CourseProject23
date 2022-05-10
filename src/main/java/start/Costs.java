@@ -1,7 +1,10 @@
 package start;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -17,8 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 		 * Поля для хранения массивов цен, считанных с формы и файла,
 		 * и строка для хранения сообщений
 		 */
-		String [] costArray = new String [23];
-		String [] costFileArray = new String [23];
+		String [] costArray = new String [25];
+		String [] costFileArray = new String [25];
 		String massage;
 		
 		/**
@@ -93,27 +96,55 @@ import javax.servlet.http.HttpServletRequest;
 
 	/**
 	 * Метод для считывания с файла имеющихся коэффициентов
+	 * @throws IOException 
 	 */
-	public void readFromFile() {
-	ClassLoader classLoader = getClass().getClassLoader();
-    InputStream myFile = classLoader.getResourceAsStream("coeffs");
-    Scanner scanner = new Scanner(myFile);
+	public void readFromFile() throws IOException 
+	{
+   	    
+		String filepath = new File("").getCanonicalPath();
+		String[] parsfilepath = filepath.split("/");
+		
+		int lengthpath = parsfilepath.length;
+		String abspath=""; 
+		for(int i=0;i<(lengthpath-1);i++) 
+		{
+			abspath=abspath+parsfilepath[i]+"/";
+		}
+		filepath=abspath+"webapps/CourseProject23/coeffs.txt";
+		
+		File file = new File(filepath);
+		FileInputStream fis = new FileInputStream(file);
+		InputStreamReader isr = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(isr);
+		
+		String[] lines = new String[50]; 	
+		int i = 1;
+		String line = "";
+		while ((line = br.readLine()) != null) 
+		{
+			  
+			 costFileArray[i] = line;
+		    i++;
+		        
+		}
     
-    int i=1;
-    while (scanner.hasNext())
-    {
-       
-       costFileArray[i] = scanner.nextLine();
-       
-       i++;
-    }
 	}
+	
+	/*public double check(String s) {
+		double a = 0;
+		
+		
+		
+		return a;
+	}*/
+	
 	/**
 	 * Метод для записи в файл новых коэффициентов
 	 */
 	public void writeToFile() throws IOException {
 
-    	String filepath = new File("").getCanonicalPath();
+    	int m = 0;
+		String filepath = new File("").getCanonicalPath();
 		String[] parsfilepath = filepath.split("/");
 		
 		int lengthpath = parsfilepath.length;
@@ -132,18 +163,29 @@ import javax.servlet.http.HttpServletRequest;
 	        {
 	            if(costArray[d].length() > 0)
 	            {
-	        	   if (Double.parseDouble(costArray[d]) > 0) {
-	        		   if (Double.parseDouble(costArray[d]) < 100000) {
+	           try {
+	            	if (Double.parseDouble(costArray[d]) > 0) 
+	            	{
+	        		   if (Double.parseDouble(costArray[d]) < 100000) 
+	        		   {
 	        			   costFileArray[d] = costArray[d];
 	        			   s ++;
 	        		   }
+	        	    }
 	        	   }
+	           catch (NumberFormatException e) {
+					
+				  m++;
+				  
+				  massage = "Некорректные данные, повторите ввод";
+				  }
 	            }  
 	        	pw.println(costFileArray[d]);
 	        }
         	
 	        pw.close();
-	        massage = s + " значений было изменено";
+	       
+	        if(m == 0) massage = s + " значений было изменено";
 	    
 	}
 	
