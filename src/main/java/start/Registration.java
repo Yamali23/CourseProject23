@@ -39,12 +39,13 @@ public class Registration extends HttpServlet {
 	
 		adduser.checkLogin();
 		adduser.checkPassword();
-		adduser.setAsRequestAttributesAndCalculate(request);
 		int reg = adduser.getReg();
+		adduser.setAsRequestAttributesAndCalculate(request);
 		
 		if (reg == 0) 
 		{
-		request.getRequestDispatcher("/InputForm.jsp").forward(request, response);
+			
+			request.getRequestDispatcher("/InputForm.jsp").forward(request, response);
 		}
 	
 		if (reg > 0) 

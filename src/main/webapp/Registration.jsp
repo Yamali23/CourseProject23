@@ -18,12 +18,14 @@
 <p><input type="submit" name="ent" value="Зарегистрироваться">
 
 <p> ${infa} </p>
+</form>
 
-<form action="${pageContext.request.contextPath}/InputForm.jsp"s>
+
+<form action="${pageContext.request.contextPath}/InputForm.jsp">
     <input type="submit" name="sign" value="Назад">
  </form>  
 
-</form>
+
 
 
 

@@ -25,7 +25,7 @@ public class AddUser {
 	 */
 	 private final String login;
 	 private final String password;
-	 private int reg = 0;
+	 private int reg;
      private String infa;
 	 /**
 		 * Конструктор - создание объекта для добавления пользователя.
@@ -38,12 +38,14 @@ public class AddUser {
 		this.login = log;
 		this.password = pass;	
 		reg = 0;
-		try {
+		
+		
+		/*try {
 			writeToFile(login,password);
 		} catch (IOException e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	/**
@@ -63,6 +65,7 @@ public class AddUser {
 	 */
 	final void writeToFile(String login, String password) throws IOException{
        
+		
 		String [] m = new String[51];
 		
 		String user = login + " " + password + " u";
@@ -135,6 +138,15 @@ public class AddUser {
 		{
 			reg = 3;
 			infa = "Пароль не должен содержать пробелов";
+		}
+		
+		if(reg == 0)
+		{
+			try {
+				writeToFile(login,password);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

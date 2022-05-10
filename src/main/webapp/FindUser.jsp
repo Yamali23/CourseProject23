@@ -18,7 +18,7 @@
     
     <p><input type="submit" name="role" value="Найти">
     </form>
-    
+  <p>${infa}</p>   
    <form action="${pageContext.request.contextPath}/MainFormA.jsp">
     <input type="submit" name="sign" value="Назад">
  </form>  

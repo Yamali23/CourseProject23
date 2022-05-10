@@ -38,7 +38,7 @@ public class Roles {
 	{
 		//this.name = name;
 		
-		
+		info = " ";
 		this.role = role;
 		/*try {
 			findUser(role, this.name);
@@ -139,7 +139,14 @@ public class Roles {
     		    	{
     		    		if(role.equals("oneRole"))
     		    		{
+    		    			if(name.equals("admin"))
+    		    			{
+    		    				info =  "Вы не можете изменить роль главному администратору" ;
+    		    			}
+    		    			else
+    		    			{
     		    			logins[3*i+2] = "u";
+    		    			}
     		    		}
     		    		if(role.equals("twoRole"))
     		    		{
