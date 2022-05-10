@@ -50,7 +50,7 @@
 
 <p> ${infa} </p>
 
-<form action="${pageContext.request.contextPath}/Pause.jsp">
+<form action="${pageContext.request.contextPath}/Left3dModel.jsp">
 <p><input type="submit" name="3d" value="Трёхмерная модель окна">
 </form>
 

@@ -13,9 +13,10 @@
 
 <form action="${pageContext.request.contextPath}/For3dModel" method="post">
 <p><select name="number" id="number-select">
+    <option value="left">Влево</option>
     <option value="pause">Пауза</option>
     <option value="right">Вправо</option>
-    <option value="left">Влево</option>
+    
     </select>
     <p><input type="submit" name="apply" value="Применить">
     </form>
