@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.servlet.ServletException;
@@ -46,6 +47,23 @@ public class Entrance extends HttpServlet {
 		input.setAsRequestAttributesAndCalculate(request);
 		
 		type = input.getType();
+		String filepath = new File("").getCanonicalPath();
+		String[] parsfilepath = filepath.split("/");
+		
+		int lengthpath = parsfilepath.length;
+		String abspath=""; 
+		for(int i=0;i<(lengthpath-1);i++) 
+		{
+			abspath=abspath+parsfilepath[i]+"/";
+		}
+		filepath=abspath+"webapps/CourseProject23/";
+		
+		File file = new File(filepath + "type.txt");
+		PrintWriter pw = new PrintWriter(file);
+		
+        pw.println(type);
+
+        pw.close();
 		
 		if (type == 1)
 		{

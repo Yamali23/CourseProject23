@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
@@ -129,8 +130,9 @@ public class Input {
 	}
 	/**
 	 * Метод для авторизации пользователя
+	 * @throws IOException 
 	 */
-	public int checkLoginAndPassword(String login, String password, String[] user) 
+	public int checkLoginAndPassword(String login, String password, String[] user) throws IOException 
 	{
 		String myUser;
 		
@@ -158,6 +160,8 @@ public class Input {
 		{
 			s = "Неверный логин или пароль";
 		}
+		
+		
 		
 		return type;
 	}

@@ -17,14 +17,10 @@
 <p>Тип стеклопакета:${TypeWind}</p> 
 <p><strong>Итоговая стоимость:</strong> ${FinalCost}</p> 
 
-<p>${Error1}</p> 
-<p>${Error2}</p> 
-<p>${Error3}</p> 
-<p>${Error4}</p> 
-<p>${Error5}</p> 
 
+<a href="/CourseProject23/Check.pdf"> Открыть PDF-файл</a>
 
-<form action="${pageContext.request.contextPath}/MainForm.jsp">
+<form action="${pageContext.request.contextPath}/MainFormA.jsp">
     <p> <input type="submit" name="sign" value="Назад"> </p>
  </form>  
 

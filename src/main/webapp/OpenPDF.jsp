@@ -20,7 +20,7 @@
 
 <a href="/CourseProject23/Check.pdf"> Открыть PDF-файл</a>
 
-<form action="${pageContext.request.contextPath}/MainFormA.jsp">
+<form action="${pageContext.request.contextPath}/MainForm.jsp">
     <p> <input type="submit" name="sign" value="Назад"> </p>
  </form>  
 
